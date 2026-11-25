@@ -14,9 +14,12 @@
 
 Прямая ссылка на текст: https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/deck.md
 
+Если модель не открывает ссылки, загрузите ей файлом [`deck.md`](deck.md) (текст) или [`deck.pdf`](deck.pdf) (слайды картинками).
+
 | Что | Где |
 |---|---|
 | Текст всех слайдов | [`deck.md`](deck.md) |
+| Дека одним PDF, слайд на страницу | [`deck.pdf`](deck.pdf) |
 | Снимки слайдов, 960 × 540 | [`slides/`](slides/), имена `NN-id.jpg` в порядке показа |
 | Исходники слайдов (HTML и CSS) | [`src/deck/`](src/deck/), порядок — в `deck.json` |
 | Экраны прототипов | [`src/prototype/screens.html`](src/prototype/screens.html), [`src/prototype/unified.html`](src/prototype/unified.html) |

@@ -10,6 +10,7 @@
 ## Материалы
 
 - [Дека одной страницей](https://rock-n-rol-23.github.io/savings-account-first-choice/deck/)
+- [Дека одним PDF](https://rock-n-rol-23.github.io/savings-account-first-choice/deck.pdf): слайд на страницу
 - [Снимки слайдов](https://github.com/Rock-n-rol-23/savings-account-first-choice/tree/main/slides): файлы NN-id.jpg в порядке показа
 - [Объединённый прототип](https://rock-n-rol-23.github.io/savings-account-first-choice/prototype/unified/)
 - [Прототип этапов 1 и 2](https://rock-n-rol-23.github.io/savings-account-first-choice/prototype/stages/)
