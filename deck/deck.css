@@ -1,0 +1,366 @@
+/* Накопительный счёт первого выбора — dark fintech, графит + зелёный (система деки «НС × Плати частями»).
+   Шкала: 24 / 28 / 40 / 56 / 96. Гарнитуры: Geologica (заголовки, числа), Golos Text (текст). */
+
+@property --n { syntax: '<integer>'; inherits: false; initial-value: 0 }
+@keyframes count { from { --n: 0 } }
+@keyframes rise { from { opacity: 0; transform: translateY(32px) } }
+@keyframes fade { from { opacity: 0 } }
+@keyframes grow { from { transform: scaleY(0) } }
+@keyframes wipe { from { transform: scaleX(0) } }
+@keyframes sheet { from { opacity: 0; transform: translateY(140px) } }
+@keyframes drift { from { opacity: 0; transform: translateX(-48px) } }
+@keyframes heroF { from { opacity: 0; transform: translateY(140px) } }
+@keyframes heroB { from { opacity: 0; transform: translateY(140px) rotate(-8deg) } }
+@keyframes pop { from { opacity: 0; transform: scale(.82) } }
+
+body {
+  --bg: #0D1210;
+  --bg2: #121917;
+  --surface: #18211E;
+  --line: #2C3632;
+  --ink: #EEF2EC;
+  --soft: #B4C0B9;
+  --mute: #84928B;
+  --green: #21A038;
+  --mint: #57D98A;
+  --amber: #F0B341;
+  font-family: 'Golos Text', Arial, sans-serif;
+  color: #EEF2EC;
+}
+
+section {
+  counter-increment: page;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Golos Text', Arial, sans-serif;
+  padding: 128px 128px 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.alt { background: var(--bg2); }
+
+h1 { font-family: 'Geologica', Arial, sans-serif; font-size: 96px; font-weight: 600; line-height: 1.06; letter-spacing: -2px; color: var(--ink); }
+h2 { font-family: 'Geologica', Arial, sans-serif; font-size: 56px; font-weight: 500; line-height: 1.1; letter-spacing: -1px; color: var(--ink); }
+h3 { font-family: 'Geologica', Arial, sans-serif; font-size: 28px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+
+/* ── движение: приход слайда ── */
+.a { animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 80ms); }
+.af { animation: fade .7s ease-out both; animation-delay: calc(var(--i, 0) * 100ms); }
+.ad { animation: drift .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 100ms); }
+.ap { animation: pop .5s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+.n { animation: count 1.2s ease-out both }
+
+/* ── шаг по клику ── */
+.fragment { opacity: 0; transform: translateY(24px); transition: opacity .45s ease-out, transform .45s ease-out; }
+.fragment.visible { opacity: 1; transform: translateY(0); }
+
+/* ── общий текст ── */
+.lead { font-size: 40px; line-height: 1.25; color: var(--ink); font-weight: 400; }
+.body { font-size: 28px; line-height: 1.4; color: var(--soft); }
+.small { font-size: 24px; line-height: 1.4; color: var(--soft); }
+.label { font-size: 24px; line-height: 1.3; color: var(--mute); }
+.num { font-family: 'Geologica', Arial, sans-serif; font-size: 56px; font-weight: 500; line-height: 1.05; letter-spacing: -1px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.num-xl { font-family: 'Geologica', Arial, sans-serif; font-size: 96px; font-weight: 500; line-height: 1; letter-spacing: -3px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.num-m { font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.num-l { font-family: 'Geologica', Arial, sans-serif; font-size: 104px; font-weight: 500; line-height: 1; letter-spacing: -4px; color: #57D98A; font-variant-numeric: tabular-nums; }
+.num-xxl { font-family: 'Geologica', Arial, sans-serif; font-size: 176px; font-weight: 500; line-height: 1; letter-spacing: -6px; color: #57D98A; font-variant-numeric: tabular-nums; }
+.unit { font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 400; line-height: 1.1; color: var(--soft); }
+.h3l { font-size: 40px; font-weight: 500; line-height: 1.15; letter-spacing: -.5px; }
+
+/* ── нижняя строка: источник + номер ── */
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1664px; display: flex; justify-content: space-between; align-items: center; gap: 48px; }
+.src { font-size: 24px; line-height: 1.3; color: var(--mute); }
+.pg { font-family: 'Geologica', Arial, sans-serif; font-size: 24px; line-height: 1.3; color: var(--mute); min-width: 48px; text-align: right; }
+.pg::before { content: counter(page); }
+
+/* ── раскладки ── */
+.row { display: flex; gap: 80px; flex: 1; min-height: 0; }
+.col { display: flex; flex-direction: column; gap: 24px; }
+.grow { flex: 1; }
+.between { justify-content: space-between; }
+.rule-t { border-top: 1px solid var(--line); padding-top: 28px; }
+.bg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+
+/* ── обложка ── */
+.cover { padding: 128px; gap: 0; justify-content: space-between; }
+.cover-title { width: 960px; display: flex; flex-direction: column; gap: 40px; }
+.cover-h { font-size: 88px; line-height: 1.05; letter-spacing: -2px; }
+.cover-lead { width: 860px; color: var(--soft); }
+.cover-meta { display: flex; gap: 56px; }
+.hero-b { position: absolute; left: 1124px; top: 236px; width: 336px; height: 695px; object-fit: contain; transform: rotate(-8deg); animation: heroB .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: 250ms; }
+.hero-f { position: absolute; left: 1392px; top: 128px; width: 398px; height: 824px; object-fit: contain; animation: heroF .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: 100ms; }
+.chips { display: flex; gap: 14px; }
+.chip-b { font-size: 24px; line-height: 1.2; font-weight: 600; color: #08130C; background: var(--mint); border-radius: 100px; padding: 10px 22px; }
+.chip-o { font-size: 24px; line-height: 1.2; font-weight: 600; color: var(--mint); border: 2px solid #2F6B45; border-radius: 100px; padding: 8px 20px; }
+
+/* ── акцентный слайд ── */
+.statement { background: linear-gradient(140deg, #1D8F3D 0%, #0F5A2A 100%); justify-content: center; gap: 56px; padding: 128px; }
+.statement-sub { width: 1280px; font-size: 40px; line-height: 1.3; color: #E4F4E8; }
+.eyebrow { font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--mint); }
+.eyebrow-w { color: #BFEBCB; }
+
+/* ── рынок: ряд значений ── */
+.stat-line { display: flex; align-items: baseline; gap: 18px; }
+.facts { display: flex; gap: 0; }
+.fact { flex: 1; display: flex; flex-direction: column; gap: 16px; padding: 8px 40px 8px 40px; border-left: 1px solid var(--line); }
+.fact-first { border-left: none; padding-left: 0; }
+.vfacts { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.vfact { display: flex; align-items: center; gap: 40px; padding: 26px 0; border-top: 1px solid var(--line); }
+.vfact-n { width: 300px; flex: none; white-space: nowrap; }
+.duo { display: flex; align-items: flex-end; gap: 28px; height: 300px; }
+.duo-c { width: 150px; display: flex; flex-direction: column; align-items: center; gap: 12px; justify-content: flex-end; }
+.duo-b { width: 100%; border-radius: 12px; background: #2C3A33; transform-origin: 50% 100%; animation: grow .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 140ms + 200ms); }
+.duo-b2 { background: linear-gradient(180deg, #57D98A 0%, #1E9A3A 100%); }
+
+/* ── приветственные ставки ── */
+.rates { width: 1120px; display: flex; flex-direction: column; gap: 14px; }
+.rate { display: flex; align-items: center; gap: 0; height: 56px; }
+.rate-n { width: 250px; flex: none; font-size: 28px; line-height: 1.2; color: var(--ink); }
+.rate-base { height: 56px; box-sizing: border-box; border-radius: 12px; background: var(--green); display: flex; align-items: center; padding: 0 18px; transform-origin: 0 50%; animation: wipe .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms + 150ms); }
+.rate-promo { height: 56px; box-sizing: border-box; border-radius: 12px; background: #1B4A2A; border: 2px dashed var(--mint); margin-left: 6px; display: flex; align-items: center; justify-content: flex-end; padding: 0 18px; transform-origin: 0 50%; animation: wipe .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms + 450ms); }
+.rate-hero { background: var(--mint); }
+.rate-t { font-family: 'Geologica', Arial, sans-serif; font-size: 28px; font-weight: 600; line-height: 1.2; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rate-td { color: #08130C; }
+.lg { display: flex; gap: 12px; align-items: center; }
+.sw { width: 20px; height: 20px; border-radius: 6px; flex: none; }
+.sw-a { background: var(--green); }
+.sw-b { background: #1B4A2A; border: 2px dashed var(--mint); box-sizing: border-box; }
+
+/* ── схема потоков ── */
+.dia { position: relative; width: 1664px; height: 400px; }
+.node { position: absolute; top: 40px; width: 400px; height: 270px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 36px; display: flex; flex-direction: column; gap: 12px; animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 120ms); }
+.node-warn { border: 2px solid var(--amber); }
+.n1 { left: 0; }
+.n2 { left: 632px; }
+.n3 { left: 1264px; }
+.dia-svg { animation: fade .6s ease-out both; animation-delay: 450ms; }
+.edge { position: absolute; width: 216px; text-align: center; font-size: 24px; line-height: 1.3; color: var(--soft); animation: fade .6s ease-out both; animation-delay: 550ms; }
+.e1 { left: 408px; top: 98px; }
+.e2 { left: 1040px; top: 98px; }
+.e3 { left: 944px; top: 398px; width: 420px; }
+
+/* ── сценарии и панели ── */
+.panel { flex: 1; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 48px; display: flex; flex-direction: column; gap: 28px; }
+.panel-hero { border: 2px solid var(--mint); }
+.tags { display: flex; gap: 12px; }
+.tag { font-size: 24px; line-height: 1.2; color: var(--mint); border: 1px solid #2F6B45; border-radius: 100px; padding: 6px 18px; }
+.tag-2 { color: var(--soft); border: 1px solid var(--line); }
+
+/* ── концепция: текст + телефон ── */
+.intro { width: 1080px; display: flex; flex-direction: column; gap: 40px; flex: 1; min-height: 0; }
+.intro-lead { width: 980px; }
+.ph-l { position: absolute; left: 1394px; top: 128px; width: 398px; height: 824px; object-fit: contain; animation: sheet .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: 150ms; }
+.bal { display: flex; flex-direction: column; gap: 10px; }
+.bal-r { display: flex; gap: 6px; height: 72px; }
+.bal-a { box-sizing: border-box; border-radius: 14px; background: var(--green); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; transform-origin: 0 50%; animation: wipe .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: 500ms; }
+.bal-b { box-sizing: border-box; border-radius: 14px; background: #1B4A2A; border: 2px dashed var(--mint); padding: 0 20px; display: flex; align-items: center; justify-content: space-between; transform-origin: 0 50%; animation: wipe .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: 750ms; }
+.bal-t { font-size: 24px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+.bal-tb { font-weight: 600; }
+
+/* ── механики: четыре квадранта ── */
+.quad { display: grid; grid-template-columns: 1fr 1fr; flex: 1; min-height: 0; }
+.q { padding: 28px 48px 28px 0; display: flex; flex-direction: column; gap: 14px; }
+.q-r { padding: 28px 0 28px 48px; border-left: 1px solid var(--line); }
+.q-b { border-top: 1px solid var(--line); }
+.q-num { font-family: 'Geologica', Arial, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.3; color: var(--mint); }
+
+/* ── путь клиента: три телефона и запись ── */
+.jr { display: flex; gap: 64px; flex: 1; min-height: 0; }
+.jl { width: 440px; display: flex; flex-direction: column; justify-content: space-between; }
+.phones { display: flex; gap: 40px; }
+.phcol { display: flex; flex-direction: column; gap: 14px; align-items: center; animation: sheet .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 120ms + 100ms); }
+.cap { font-size: 24px; line-height: 1.3; font-weight: 600; color: var(--soft); align-self: flex-start; padding-left: 12px; }
+.ph { width: 360px; height: 745px; object-fit: contain; }
+.vid { flex: none; object-fit: contain; border-radius: 44px; animation: sheet .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: 150ms; }
+.steps { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.srcitem { display: flex; gap: 20px; }
+.srcnum { font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1; color: var(--mint); width: 36px; flex: none; }
+
+/* ── выгода клиента: два ряда ── */
+.cmp { display: flex; flex-direction: column; gap: 36px; flex: 1; justify-content: center; }
+.cmp-r { display: flex; flex-direction: column; gap: 12px; }
+.cmp-bar { display: flex; gap: 6px; height: 88px; }
+.cmp-s { box-sizing: border-box; border-radius: 14px; display: flex; align-items: center; padding: 0 24px; transform-origin: 0 50%; animation: wipe .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 160ms + 250ms); }
+.cmp-old { background: #2C3A33; }
+.cmp-core { background: var(--green); }
+.cmp-flow { background: #1B4A2A; border: 2px dashed var(--mint); padding: 0 10px; justify-content: center; }
+.cmp-add { background: var(--mint); padding: 0 10px; justify-content: center; }
+
+/* ── таблицы-сетки ── */
+.gridu { display: grid; grid-template-columns: 520px 232px 232px; }
+.grid4 { display: grid; grid-template-columns: 1fr 250px 250px 250px; }
+.gridc { display: grid; grid-template-columns: 400px 1fr 1fr; }
+.cell { padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 24px; line-height: 1.35; color: var(--soft); }
+.cell-h { color: var(--mute); padding-top: 0; }
+.cell-r { text-align: right; }
+.cell-p { padding-left: 40px; }
+.cell-i { color: var(--ink); }
+.cell-v { text-align: right; line-height: 1.16; font-family: 'Geologica', Arial, sans-serif; font-size: 28px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.cell-t { border-bottom: none; border-top: 2px solid var(--mint); color: var(--ink); font-weight: 600; }
+.cell-tv { border-bottom: none; border-top: 2px solid var(--mint); text-align: right; line-height: 1.16; font-family: 'Geologica', Arial, sans-serif; font-size: 28px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.cell-hm { color: var(--mint); font-weight: 600; }
+.cell-l { font-size: 28px; padding: 34px 0; }
+.cell-pad { padding: 30px 0; }
+.cell-lp { padding: 30px 0 30px 40px; }
+
+/* ── раскладка зарплаты ── */
+.ways { display: flex; flex-direction: column; }
+.way { display: flex; align-items: center; gap: 40px; padding: 24px 0; border-top: 1px solid var(--line); animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 80ms); }
+.way-l { width: 300px; flex: none; font-size: 28px; line-height: 1.3; color: var(--ink); }
+.way-c { flex: 1; display: flex; align-items: center; height: 52px; }
+.wb { height: 52px; border-radius: 12px; transform-origin: 0 50%; animation: wipe .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 80ms + 300ms); }
+.way-v { width: 220px; flex: none; text-align: right; white-space: nowrap; font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.k-c { background: #F08A73; } .k-a { background: #F0B341; } .k-v { background: #B79CFF; } .k-b { background: #6FB7FF; } .k-g { background: #57D98A; } .k-n { background: #56635D; }
+
+/* ── три факта в ряд ── */
+.tri { display: flex; }
+.tri-i { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 0 48px; border-left: 1px solid var(--line); }
+.tri-first { border-left: none; padding-left: 0; }
+
+/* ── ставка из надбавок ── */
+.eq { display: flex; gap: 16px; }
+.eq-b { flex: 1; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.eq-w { flex: 1.35; }
+.eq-t { border: 2px solid var(--mint); }
+.tri-h { min-height: 92px; }
+
+/* ── риски ── */
+.risks { display: grid; grid-template-columns: 700px 1fr; }
+.risk { padding: 34px 40px 34px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 20px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: var(--amber); flex: none; }
+.risk-do { padding: 34px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; }
+.risk-h { padding-top: 0; padding-bottom: 20px; }
+
+/* ── круг объединённого продукта ── */
+.loop { position: relative; width: 1664px; height: 560px; }
+.ln { position: absolute; width: 340px; height: 124px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px 28px; display: flex; flex-direction: column; gap: 4px; animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 110ms + 100ms); }
+.ln-s { border: 2px solid var(--mint); }
+.ln1 { left: 662px; top: 18px; }
+.ln2 { left: 1195px; top: 170px; }
+.ln3 { left: 991px; top: 416px; }
+.ln4 { left: 333px; top: 416px; }
+.ln5 { left: 129px; top: 170px; }
+.loop-c { position: absolute; left: 602px; top: 196px; width: 460px; text-align: center; display: flex; flex-direction: column; gap: 8px; animation: fade .7s ease-out both; animation-delay: 700ms; }
+
+/* ── шесть механик ── */
+.six { display: grid; grid-template-columns: 1fr 1fr 1fr; flex: 1; min-height: 0; }
+.sx { padding: 26px 40px 26px 40px; display: flex; flex-direction: column; gap: 12px; border-left: 1px solid var(--line); }
+.sx-first { border-left: none; padding-left: 0; }
+.sx-b { border-top: 1px solid var(--line); }
+
+/* ── решения ── */
+.asks { display: flex; flex-direction: column; }
+.ask { display: flex; align-items: center; gap: 48px; padding: 36px 0; border-top: 1px solid var(--line); }
+.ask-n { font-family: 'Geologica', Arial, sans-serif; font-size: 96px; font-weight: 500; line-height: 1; letter-spacing: -3px; color: var(--mint); width: 96px; flex: none; }
+
+/* ── оглавление ── */
+.toc { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.toc-r { flex: 1; display: flex; align-items: center; gap: 40px; border-top: 1px solid var(--line); animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+.toc-n { width: 80px; flex: none; font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1.1; color: var(--mint); font-variant-numeric: tabular-nums; }
+.toc-t { width: 500px; flex: none; }
+.toc-d { flex: 1; }
+.toc-p { width: 80px; flex: none; text-align: right; font-family: 'Geologica', Arial, sans-serif; font-size: 28px; line-height: 1.2; color: var(--mute); font-variant-numeric: tabular-nums; }
+
+/* ── разделитель раздела ── */
+.sec { gap: 0; justify-content: space-between; }
+.sec-row { display: flex; gap: 96px; align-items: flex-end; }
+.sec-l { width: 860px; flex: none; display: flex; flex-direction: column; gap: 28px; }
+.sec-q { color: var(--soft); width: 800px; }
+.sec-o { position: absolute; left: 1000px; top: 120px; width: 820px; height: 820px; object-fit: contain; animation: sheet .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: 150ms; }
+.sec-r { flex: 1; display: flex; flex-direction: column; }
+.sec-h { padding-bottom: 18px; }
+.sec-i { padding: 20px 0; border-top: 1px solid #34413B; font-size: 28px; line-height: 1.3; color: var(--ink); }
+.rail { display: flex; gap: 12px; }
+.rail-i { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.rail-b { height: 6px; border-radius: 3px; background: #34413B; transform-origin: 0 50%; animation: wipe .6s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 60ms + 250ms); }
+.rail-done { background: #2F6B45; }
+.rail-now { background: var(--mint); }
+.rail-t { font-size: 24px; line-height: 1.3; color: var(--mute); }
+.rail-td { color: var(--soft); }
+.rail-tn { color: var(--ink); font-weight: 600; }
+
+/* ── ставка за год ── */
+.rates-y { width: 1096px; }
+.rates-y .rate-promo { padding: 0 14px; }
+.rate-ny { width: 210px; }
+.rate-hy { height: 34px; }
+.yr { margin-left: auto; width: 130px; flex: none; text-align: right; white-space: nowrap; font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1.1; color: var(--mint); font-variant-numeric: tabular-nums; }
+.yr-h { margin-left: auto; width: 130px; flex: none; text-align: right; font-size: 24px; line-height: 1.3; color: var(--mute); }
+
+/* ── ставки по банкам: базовая, приветственная, средняя за год ── */
+.ys { position: relative; display: flex; flex-direction: column; }
+.ys-h { position: relative; height: 36px; margin-left: 230px; }
+.ys-r { display: flex; align-items: center; height: 76px; animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms + 100ms); }
+.ys-n { width: 230px; flex: none; box-sizing: border-box; padding-top: 28px; font-size: 28px; line-height: 1.2; color: var(--ink); }
+.ys-t { position: relative; width: 1434px; height: 76px; flex: none; }
+.ys-g { position: absolute; top: 0; width: 1px; height: 76px; background: #232D29; }
+.ys-d { position: absolute; top: 51px; height: 0; border-top: 2px dashed #56635D; }
+.ys-b { position: absolute; top: 44px; width: 16px; height: 16px; border-radius: 8px; background: #84928B; }
+.ys-p { position: absolute; top: 44px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 8px; border: 3px solid #B4C0B9; }
+.ys-m { position: absolute; top: 34px; width: 8px; height: 38px; border-radius: 4px; background: var(--ink); }
+.ys-l { position: absolute; top: 39px; font-size: 24px; line-height: 1.1; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ys-lb { width: 70px; text-align: right; color: var(--mute); }
+.ys-v { position: absolute; top: 0; width: 120px; text-align: center; font-family: 'Geologica', Arial, sans-serif; font-size: 30px; font-weight: 600; line-height: 1.05; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ys-c { position: absolute; top: 2px; font-size: 24px; line-height: 1.1; color: var(--mute); white-space: nowrap; }
+.ys-x { position: relative; height: 34px; margin-left: 230px; }
+.ys-xl { position: absolute; top: 8px; width: 80px; text-align: center; font-size: 24px; line-height: 1.1; color: var(--mute); }
+.ys-band { position: absolute; top: 0; height: 560px; box-sizing: border-box; background: rgba(87,217,138,.13); border-left: 2px solid #57D98A; border-right: 2px solid #57D98A; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px; }
+.ys-bt { font-size: 24px; line-height: 1.2; font-weight: 600; color: var(--mint); white-space: nowrap; }
+
+/* ── диапазоны порога ── */
+.rg { display: flex; flex-direction: column; }
+.rg-h { display: flex; align-items: flex-end; padding-bottom: 18px; }
+.rg-r { display: flex; align-items: center; padding: 30px 0; border-top: 1px solid var(--line); animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 100ms); }
+.rg-n { width: 280px; flex: none; font-size: 28px; line-height: 1.3; color: var(--ink); }
+.rg-n2 { width: 300px; }
+.rg-m { width: 270px; flex: none; box-sizing: border-box; padding-right: 32px; text-align: right; font-family: 'Geologica', Arial, sans-serif; font-size: 28px; line-height: 1.16; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rg-t { position: relative; width: 720px; height: 56px; flex: none; }
+.rg-t2 { width: 470px; }
+.rg-ax { position: absolute; left: 0; top: 27px; width: 720px; height: 2px; background: var(--line); }
+.rg-ax2 { width: 470px; }
+.rg-b { position: absolute; top: 0; height: 56px; border-radius: 12px; background: #3A4A42; transform-origin: 0 50%; animation: wipe .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 100ms + 300ms); }
+.rg-bm { background: linear-gradient(90deg, #21A038 0%, #57D98A 100%); }
+.rg-bl { background: #8A4A3C; }
+.rg-v { position: absolute; top: 12px; font-family: 'Geologica', Arial, sans-serif; font-size: 28px; line-height: 1.16; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rg-vl { width: 80px; text-align: right; }
+.rg-x { position: relative; height: 34px; flex: none; }
+.rg-xl { position: absolute; top: 4px; width: 80px; text-align: center; font-size: 24px; line-height: 1.1; color: var(--mute); }
+
+/* ── маржа на 100 ₽ ── */
+.mg { position: relative; display: flex; flex-direction: column; }
+.mg-h { display: flex; height: 48px; }
+.mg-r { display: flex; align-items: center; height: 150px; border-top: 1px solid var(--line); animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 100ms); }
+.mg-n { width: 290px; flex: none; display: flex; flex-direction: column; gap: 4px; }
+.mg-t { position: relative; width: 520px; height: 64px; flex: none; }
+.mg-p { position: absolute; left: 0; top: 0; height: 64px; box-sizing: border-box; border-radius: 12px; background: #2C3A33; display: flex; align-items: center; padding: 0 18px; transform-origin: 0 50%; animation: wipe .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 100ms + 300ms); }
+.mg-pg { background: var(--green); }
+.mg-pr { background: #1B6B33; justify-content: center; padding: 0 8px; }
+.mg-g { position: absolute; top: 0; height: 64px; box-sizing: border-box; border-radius: 12px; background: #1B4A2A; border: 2px dashed var(--mint); display: flex; align-items: center; justify-content: center; animation: fade .6s ease-out both; animation-delay: calc(var(--i, 0) * 100ms + 800ms); }
+.mg-l { position: absolute; top: 0; height: 64px; border-radius: 6px; background: #F08A73; animation: fade .6s ease-out both; animation-delay: calc(var(--i, 0) * 100ms + 800ms); }
+.mg-v { width: 190px; flex: none; text-align: right; white-space: nowrap; font-family: 'Geologica', Arial, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.mg-line { position: absolute; left: 745px; top: 40px; width: 2px; height: 458px; background: var(--ink); animation: fade .6s ease-out both; animation-delay: 500ms; }
+.mg-ll { position: absolute; left: 305px; top: 510px; width: 428px; text-align: right; font-size: 24px; line-height: 1.3; color: var(--ink); }
+.cell-b { font-size: 28px; }
+
+/* ── крупные фрагменты экранов ── */
+.zooms { flex: 1; display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
+.zrow { flex: 1; display: flex; gap: 64px; align-items: flex-start; }
+.zcol { display: flex; flex-direction: column; gap: 14px; animation: sheet .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 140ms + 200ms); }
+.zm { object-fit: contain; box-sizing: border-box; border: 1px solid #2C3632; }
+
+/* ── 3D-объект на слайде ── */
+.o3d { position: absolute; left: 972px; top: 120px; width: 820px; height: 820px; object-fit: contain; animation: fade .9s ease-out both; }
+.hero-3d { position: absolute; left: 1010px; top: 150px; width: 800px; height: 800px; object-fit: contain; animation: heroF .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: 100ms; }
+.tag3 { position: absolute; display: flex; flex-direction: column; gap: 4px; animation: rise .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 120ms + 500ms); }
+.tag3-k { font-family: 'Geologica', Arial, sans-serif; font-size: 40px; font-weight: 500; line-height: 1.1; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.intro-n { width: 820px; }
+
+/* ── цвет текста: в конце файла, чтобы перекрывать классы чисел ── */
+.mute { color: var(--mute); }
+.gt { background: linear-gradient(120deg, #A5F5C0 0%, #2DBB52 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.mint { color: var(--mint); }
+.amb { color: var(--amber); }
+.ink { color: var(--ink); }
+.loss { color: #F08A73; }
+.dark { color: #08130C; }

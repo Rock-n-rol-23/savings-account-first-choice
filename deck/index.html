@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Накопительный счёт первого выбора — версия 2</title>
+<meta name="description" content="Дека из 54 слайдов: перезапуск накопительного счёта. Текст слайдов для чтения моделями — в deck.md рядом.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..800&family=Golos+Text:wght@400..700&display=swap">
+<style>
+* { margin: 0 }
+html { background: #060908 }
+body { font: 32px/1.2 sans-serif; counter-reset: page; padding: 24px 0 64px }
+.top { max-width: 1280px; margin: 0 auto 20px; padding: 0 20px; display: flex; gap: 20px; flex-wrap: wrap; align-items: baseline; font: 16px/1.4 'Golos Text', Arial, sans-serif; color: #B4C0B9 }
+.top b { color: #EEF2EC; font-weight: 600 }
+.top a { color: #57D98A }
+.frame { position: relative; width: min(100% - 40px, 1280px); aspect-ratio: 16 / 9; margin: 0 auto 20px; overflow: hidden; border-radius: 14px; background: #0D1210 }
+.frame > section { position: absolute; left: 0; top: 0; width: 1920px !important; height: 1080px !important; overflow: hidden !important; box-sizing: border-box !important; isolation: isolate; transform-origin: 0 0; transform: scale(var(--k, .5)) }
+.frame > section aside { display: none }
+h1 { font-size: 96px; font-weight: 600 } h2 { font-size: 64px; font-weight: 600 } h3 { font-size: 44px; font-weight: 600 }
+p, li, h1, h2, h3, td, th { overflow-wrap: break-word; text-wrap: pretty }
+.bg { z-index: -1 }
+video { display: block }
+</style>
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<p class="top"><b>Накопительный счёт первого выбора — версия 2</b><span>54 слайдов</span><a href="../deck.md">текст слайдов</a><a href="../prototype/unified/">объединённый прототип</a><a href="../prototype/stages/">прототип этапов</a><a href="../">о репозитории</a></p>
+<div class="frame" id="slide-1"><section id="cover" class="cover" data-transition="fade">
+<img class="bg" src="assets/bg-cover.jpg" alt="">
+<img class="hero-3d" src="assets/r3d-hero.webp" alt="Стеклянный блок счёта из двух слоёв: запас с тремя месяцами внутри и плита денег на каждый день, вокруг кольцо ставки, сверху падают монеты">
+<p class="label a">Концепция продукта · версия 2</p>
+<div class="cover-title">
+<h1 class="cover-h a" style="--i:1">Накопительный счёт первого выбора</h1>
+<p class="lead cover-lead a" style="--i:3">Один счёт копит, платит и раскладывает зарплату. Ставка за поведение идёт на новые деньги.</p>
+<div class="chips a" style="--i:4"><p class="chip-b">новые деньги</p><p class="chip-b">конверты и семья</p><p class="chip-b">подушка в месяцах</p></div>
+</div>
+<div class="cover-meta a" style="--i:5">
+<p class="label">Трайб «Сбережения клиентов»</p>
+<p class="label">Ноябрь 2026</p>
+</div>
+</section>
+</div>
+<div class="frame" id="slide-2"><section id="summary" data-transition="fade">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Резюме: счёт привлекает новые деньги и не повышает ставку на прежние</h2>
+<div class="col grow between">
+<p class="lead a" style="--i:1; width:1560px">Рекомендуем объединённый продукт: счёт копит, платит и раскладывает зарплату по конвертам. Ставка за поведение, от 9,5% до 12,5%, идёт на новые деньги. Прежние остаются на 7,5%, «тратится» — без процентов.</p>
+<div class="tri">
+<div class="tri-i tri-first a" style="--i:2"><p class="num-xl mint" style="font-size:84px; white-space:nowrap">0%</p><h3>Порог новых денег в первый день</h3><p class="small">Перешедший клиент приносит те же 24 000 ₽ маржи в год, что и сегодня.</p></div>
+<div class="tri-i a" style="--i:3"><p class="num-xl mint" style="font-size:84px; white-space:nowrap">29–50%</p><h3>Порог после списания якоря</h3><p class="small">В версии 1 было 50–65%. Якорь списывается за 12–24 месяца стажа.</p></div>
+<div class="tri-i a" style="--i:4"><p class="num-xl mint" style="font-size:84px; white-space:nowrap">60 млрд ₽</p><h3>В год на каждый 1 трлн ₽ в «тратится»</h3><p class="small">Столько стоили бы 6% всем клиентам. Они остаются адресным предложением для новых.</p></div>
+</div>
+<p class="body rule-t a" style="--i:6">Нужно от руководства: утвердить правила ставки, запустить пилот с контрольной группой, сверить юридическую конструкцию и сменить метрику трайба на чистый приток.</p>
+</div>
+<div class="foot"><p class="src">Расчёт на клиента с 300 000 ₽ при ключевой ставке 14%. Порог — доля новых или удержанных денег, при которой счёт окупается.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-3"><section id="toc" class="alt" data-transition="fade">
+<h2 class="a">Содержание</h2>
+<div class="toc">
+<div class="toc-r" style="--i:1"><p class="toc-n">01</p><h3 class="h3l toc-t" style="width:620px">Рынок</h3><p class="small toc-d">Рост счетов, ставка за год, конкуренты и преимущества Сбера</p><p class="toc-p">4</p></div>
+<div class="toc-r" style="--i:2"><p class="toc-n">02</p><h3 class="h3l toc-t" style="width:620px">Идея и правила ставки</h3><p class="small toc-d">Сегменты, ставка из трёх привычек, якорь и метрики</p><p class="toc-p">9</p></div>
+<div class="toc-r" style="--i:3"><p class="toc-n">03</p><h3 class="h3l toc-t" style="width:620px">Этап 1 · счёт, которым платят</h3><p class="small toc-d">Адресное предложение для новых денег: путь клиента и экономика</p><p class="toc-p">16</p></div>
+<div class="toc-r" style="--i:4"><p class="toc-n">04</p><h3 class="h3l toc-t" style="width:620px">Этап 2 · конверты</h3><p class="small toc-d">Раскладка зарплаты, платежи, семья и цена процентов на «тратится»</p><p class="toc-p">25</p></div>
+<div class="toc-r" style="--i:5"><p class="toc-n">05</p><h3 class="h3l toc-t" style="width:620px">Рекомендация</h3><p class="small toc-d">Объединённый продукт: экономика, чувствительность и месяц клиента</p><p class="toc-p">35</p></div>
+<div class="toc-r" style="--i:6"><p class="toc-n">06</p><h3 class="h3l toc-t" style="width:620px">Запуск</h3><p class="small toc-d">Механики роста, пилот, риски и решения</p><p class="toc-p">50</p></div>
+</div>
+<div class="foot"><p class="src">Справа — номер слайда, с которого начинается раздел.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-4"><section id="market" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Накопительные счета растут быстрее остальных сбережений</h2>
+<div class="row">
+<div class="col between" style="width:760px">
+<div class="col" style="gap:12px">
+<div class="stat-line a" style="--i:1"><p class="num-xxl">11,1</p><p class="unit">трлн ₽</p></div>
+<p class="body a" style="--i:2">на рублёвых накопительных счетах на&nbsp;конец октября 2026</p>
+</div>
+<div class="bal a" style="--i:3">
+<div class="bal-r"><div class="bal-b" style="width:620px"><p class="bal-t">Начало 2026</p><p class="bal-t bal-tb">9,3 трлн ₽</p></div></div>
+<div class="bal-r"><div class="bal-a" style="width:740px"><p class="bal-t">Октябрь 2026</p><p class="bal-t bal-tb">11,1 трлн ₽</p></div></div>
+</div>
+</div>
+<div class="vfacts">
+<div class="vfact a" style="--i:2"><p class="num-xl mint vfact-n">+20%</p><div class="col" style="gap:6px"><h3>Рост за 10 месяцев 2026</h3><p class="small">плюс 1,8 трлн ₽ с начала года</p></div></div>
+<div class="vfact a" style="--i:3"><p class="num-xl mint vfact-n n">94%</p><div class="col" style="gap:6px"><h3>Прироста розничных пассивов</h3><p class="small">дали накопительные счета за 9 месяцев 2026</p></div></div>
+<div class="vfact a" style="--i:4"><p class="num-xl mint vfact-n n">53%</p><div class="col" style="gap:6px"><h3>Сберегающих держат деньги на счёте</h3><p class="small">на вкладах — 45% (ВЦИОМ, конец 2025)</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Оценки ВТБ, октябрь–ноябрь 2026 (akm.ru); начало года — расчёт из них. ВЦИОМ — по «Коммерсанту», 27.02.2026.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-5"><section id="auction" class="alt" data-transition="fade">
+<h2 class="a">Приветственная ставка за&nbsp;год даёт от&nbsp;7,5% до&nbsp;11,4%</h2>
+<div class="col between grow">
+<div class="ys">
+<div class="ys-h af" style="--i:2"><p class="ys-c" style="left:377px; width:150px; text-align:right">потом базовая</p><p class="ys-c" style="left:1114px">обещают новым</p><p class="ys-c ink" style="left:579px; width:220px; text-align:center">в среднем за год</p></div>
+<div class="ys-r" style="--i:1"><p class="ys-n">Совкомбанк</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:555px; width:558px"></div><div class="ys-b" style="left:537px"></div><p class="ys-l ys-lb" style="left:457px">10%</p><div class="ys-p" style="left:1114px"></div><p class="ys-l" style="left:1140px">15,5% · 3 мес.</p><div class="ys-m" style="left:685px"></div><p class="ys-v" style="left:629px">11,4%</p></div></div>
+<div class="ys-r" style="--i:2"><p class="ys-n">Яндекс Банк</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:345px; width:715px"></div><div class="ys-b" style="left:327px"></div><p class="ys-l ys-lb" style="left:247px">8%</p><div class="ys-p" style="left:1062px"></div><p class="ys-l" style="left:1088px">15% · 2 мес.</p><div class="ys-m" style="left:454px"></div><p class="ys-v" style="left:398px">9,2%</p></div></div>
+<div class="ys-r" style="--i:3"><p class="ys-n">Альфа-Банк</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:240px; width:788px"></div><div class="ys-b" style="left:222px"></div><p class="ys-l ys-lb" style="left:142px">7%</p><div class="ys-p" style="left:1030px"></div><p class="ys-l" style="left:1056px">14,7% · 3 мес.</p><div class="ys-m" style="left:428px"></div><p class="ys-v" style="left:372px">8,9%</p></div></div>
+<div class="ys-r" style="--i:4"><p class="ys-n mint">Сбер</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:292px; width:715px"></div><div class="ys-b" style="left:274px"></div><p class="ys-l ys-lb" style="left:194px">7,5%</p><div class="ys-p" style="left:1010px"></div><p class="ys-l" style="left:1036px">14,5% · 2 мес.</p><div class="ys-m" style="left:401px"></div><p class="ys-v" style="left:345px">8,7%</p></div></div>
+<div class="ys-r" style="--i:5"><p class="ys-n">Ozon Банк</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:240px; width:840px"></div><div class="ys-b" style="left:222px"></div><p class="ys-l ys-lb" style="left:142px">7%</p><div class="ys-p" style="left:1082px"></div><p class="ys-l" style="left:1108px">15,19% · 2 мес.</p><div class="ys-m" style="left:369px"></div><p class="ys-v" style="left:313px">8,4%</p></div></div>
+<div class="ys-r" style="--i:6"><p class="ys-n">ВТБ</p><div class="ys-t"><div class="ys-g" style="left:125px"></div><div class="ys-g" style="left:335px"></div><div class="ys-g" style="left:545px"></div><div class="ys-g" style="left:755px"></div><div class="ys-g" style="left:965px"></div><div class="ys-g" style="left:1175px"></div><div class="ys-d" style="left:135px; width:894px"></div><div class="ys-b" style="left:117px"></div><p class="ys-l ys-lb" style="left:37px">6%</p><div class="ys-p" style="left:1030px"></div><p class="ys-l" style="left:1056px">14,7% · 2 мес.</p><div class="ys-m" style="left:273px"></div><p class="ys-v" style="left:217px">7,5%</p></div></div>
+<div class="ys-x"><p class="ys-xl" style="left:85px">6%</p><p class="ys-xl" style="left:295px">8%</p><p class="ys-xl" style="left:505px">10%</p><p class="ys-xl" style="left:715px">12%</p><p class="ys-xl" style="left:925px">14%</p><p class="ys-xl" style="left:1135px">16%</p></div>
+<div style="height:34px"></div>
+<div class="ys-band fragment visible" style="left:722px; width:315px; top:36px; height:524px"><p class="ys-bt">Сетка: 9,5–12,5%</p></div>
+</div>
+<p class="body mint a" style="--i:8; width:1100px">На рынке сегодня высокую ставку получают новые деньги. Те, что остаются, получают базовую.</p>
+</div>
+<div class="foot"><p class="src">Условия на октябрь–ноябрь 2026 по агрегаторам, без подписок; сверить с тарифами. За&nbsp;год — среднее за&nbsp;12 месяцев.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-6"><section id="landscape" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Ставка за поведение, раскладка и доходность по ключевой на рынке уже есть</h2>
+<div class="gridc a" style="--i:2">
+<p class="cell cell-h"></p><p class="cell cell-h cell-p">Что уже есть на рынке</p><p class="cell cell-h cell-hm cell-p">Чем отвечает счёт</p>
+<p data-fragment-index="1" class="cell cell-l cell-pad cell-i fragment visible">Яндекс Банк<br><span class="mute">счёт «Сейв»</span></p><p data-fragment-index="1" class="cell cell-l cell-lp fragment visible">Платит за подписку и покупки: 8% базовая, 11% с «Плюсом», 13% в день оплаты картой «Пэй».</p><p data-fragment-index="1" class="cell cell-l cell-lp ink fragment visible">Надбавки за приток, стаж и запас на новые деньги. Подписка и обязательные покупки не нужны.</p>
+<p data-fragment-index="2" class="cell cell-l cell-pad cell-i fragment visible">Т-Банк<br><span class="mute">сервис «Распределения»</span></p><p data-fragment-index="2" class="cell cell-l cell-lp fragment visible">С мая 2025 сервис предлагает раскладку в день зарплаты, клиент подтверждает операции.</p><p data-fragment-index="2" class="cell cell-l cell-lp ink fragment visible">Первая раскладка — с подтверждением, дальше счёт раскладывает сам, а платежи уходят в срок.</p>
+<p data-fragment-index="3" class="cell cell-l cell-pad cell-i fragment visible">Фонды денежного рынка<br><span class="mute">Московская биржа</span></p><p data-fragment-index="3" class="cell cell-l cell-lp fragment visible">Больше 2 трлн ₽ и около 3 млн владельцев. Доходность близка к ключевой ставке, 14%.</p><p data-fragment-index="3" class="cell cell-l cell-lp ink fragment visible">Ставка ниже, до 12,5%, зато деньги застрахованы. Сверх подушки счёт сам предлагает фонд Сбера.</p>
+</div>
+<div class="foot"><p class="src">Т—Ж, 28.09.2026; пресс-релиз Т-Банка, 28.05.2025; Московская биржа, сентябрь 2026. Ставки и условия сверить с тарифами.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-7"><section id="edge" class="alt" data-transition="fade">
+<h2 class="a">У Сбера есть то, чего нет у новых игроков</h2>
+<div class="quad">
+<div class="q a" style="--i:1"><p class="q-num">01</p><h3 class="h3l">Зарплаты и пенсии</h3><p class="small">Раскладку можно включить у источника: в зарплатном проекте и при назначении пенсии. Часть дохода попадает в «копится» раньше, чем на карту.</p></div>
+<div class="q q-r a" style="--i:2"><p class="q-num">02</p><h3 class="h3l">Обязательные платежи</h3><p class="small">Кредит, ЖКХ и регулярные переводы уже идут через Сбер. Готовое правило раскладки строится по истории, клиенту остаётся подтвердить.</p></div>
+<div class="q q-b a" style="--i:3"><p class="q-num">03</p><h3 class="h3l">Карта и SberPay</h3><p class="small">Оплата со счёта работает там же, где клиент платит сегодня. Новую карту и новое приложение заводить не нужно.</p></div>
+<div class="q q-r q-b a" style="--i:4"><p class="q-num">04</p><h3 class="h3l">Данные о расходах</h3><p class="small">Подушка считается в месяцах жизни конкретного клиента. Это число есть только у банка, через который проходят его траты.</p></div>
+</div>
+<div class="foot"><p class="src">Размеры зарплатной и пенсионной базы и доля платежей — по данным портфеля; в деку не включены.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-8"><section id="today" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Сегодня деньги не попадают на счёт сами</h2>
+<div class="col grow between">
+<div class="dia" style="height:440px">
+<svg class="dia-svg" style="position:absolute; left:0; top:0" width="1664" height="400" viewBox="0 0 1664 400" aria-label="Путь денег сегодня: зарплата приходит на карту под 0 процентов, на накопительный счёт клиент переводит деньги сам и сам возвращает их на карту, чтобы потратить">
+<defs>
+<marker id="tm" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#57D98A" stroke="none"/></marker>
+<marker id="ts" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#84928B" stroke="none"/></marker>
+</defs>
+<path d="M 400 175 L 626 175" fill="none" stroke="#57D98A" stroke-width="3" marker-end="url(#tm)"/>
+<path d="M 1032 175 L 1258 175" fill="none" stroke="#84928B" stroke-width="3" stroke-dasharray="12 10" marker-end="url(#ts)"/>
+<path d="M 1464 310 Q 1148 450 839 314" fill="none" stroke="#84928B" stroke-width="3" stroke-dasharray="12 10" marker-end="url(#ts)"/>
+<circle cx="400" cy="175" r="8" fill="#57D98A"><animateMotion path="M0 0 L224 0" dur="3.2s" begin="0s" repeatCount="indefinite"/></circle>
+<circle cx="400" cy="175" r="8" fill="#57D98A"><animateMotion path="M0 0 L224 0" dur="3.2s" begin="1.06s" repeatCount="indefinite"/></circle>
+<circle cx="400" cy="175" r="8" fill="#57D98A"><animateMotion path="M0 0 L224 0" dur="3.2s" begin="2.12s" repeatCount="indefinite"/></circle>
+<circle cx="1032" cy="175" r="6" fill="#B4C0B9"><animateMotion path="M0 0 L224 0" dur="6.4s" begin="0s" repeatCount="indefinite"/></circle>
+<circle cx="1464" cy="310" r="6" fill="#B4C0B9"><animateMotion path="M0 0 Q -316 140 -625 4" dur="6.4s" begin="3.2s" repeatCount="indefinite"/></circle>
+</svg>
+<div class="node n1" style="--i:1"><p class="label">Зарплата</p><p class="num">120 000 ₽</p><p class="small">приходит на карту</p></div>
+<div class="node node-warn n2" style="--i:2"><p class="label">Карта</p><p class="num amb">0%</p><p class="small">деньги ждут трат и&nbsp;не&nbsp;работают</p></div>
+<div class="node n3" style="--i:3"><p class="label">Накопительный счёт</p><p class="num">7,5%</p><p class="small">базовая ставка, если клиент перевёл деньги сам</p></div>
+<p class="edge e1">само</p>
+<p class="edge e2">перевод руками</p>
+<p class="edge e3">обратно на карту, чтобы потратить</p>
+</div>
+<div class="facts">
+<div class="fact fact-first a" style="--i:6"><p class="num">0%</p><p class="small">Обычная ставка на остаток дебетовой карты</p></div>
+<div class="fact a" style="--i:7"><p class="num">2–3 месяца</p><p class="small">Живёт приветственная ставка по счёту</p></div>
+<div class="fact a" style="--i:8"><p class="num">37%</p><p class="small">Россиян не откладывают совсем</p></div>
+</div>
+</div>
+<div class="foot"><p class="src">Базовая ставка счёта Сбера — 7,5% (условия с 27.10.2026, vbr.ru). Опрос НАФИ, апрель 2026.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-9"><section id="idea" class="statement" data-transition="fade">
+<p class="eyebrow eyebrow-w a">Идея</p>
+<h1 class="a" style="--i:1">Сберегать по умолчанию</h1>
+<p class="statement-sub a" style="--i:3">Деньги приходят на счёт и уходят с него на покупки, платежи и цели. Высокую ставку получают новые деньги, которые остаются.</p>
+</section>
+</div>
+<div class="frame" id="slide-10"><section id="segments" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Четыре сегмента и своя механика для каждого</h2>
+<div class="gridc a" style="--i:2; grid-template-columns: 360px 1fr 1fr">
+<p class="cell cell-h">Сегмент</p><p class="cell cell-h cell-p">Что происходит сегодня</p><p class="cell cell-h cell-hm cell-p">Что предлагает счёт</p>
+<p data-fragment-index="1" class="cell cell-b cell-pad cell-i fragment visible">Не копит</p><p data-fragment-index="1" class="cell cell-b cell-pad cell-p fragment visible" style="padding-right:32px">Деньги лежат на карте до зарплаты, подушки нет.</p><p data-fragment-index="1" class="cell cell-b cell-pad cell-p ink fragment visible">Раскладка зарплаты и «с прибавки» дают первый месяц подушки. Ставка вторична.</p>
+<p data-fragment-index="2" class="cell cell-b cell-pad cell-i fragment visible">«Спящий» остаток</p><p data-fragment-index="2" class="cell cell-b cell-pad cell-p fragment visible" style="padding-right:32px">Счёт на базовых 7,5%, не пополняется.</p><p data-fragment-index="2" class="cell cell-b cell-pad cell-p ink fragment visible">Якорь: ставка прежняя. Сетка — за прирост и стаж.</p>
+<p data-fragment-index="3" class="cell cell-b cell-pad cell-i fragment visible">Охотник за ставкой</p><p data-fragment-index="3" class="cell cell-b cell-pad cell-p fragment visible" style="padding-right:32px">Приходит на приветственную ставку, уходит через 2–3 месяца.</p><p data-fragment-index="3" class="cell cell-b cell-pad cell-p ink fragment visible">Сетка вместо приветственной: ставка держится, пока деньги остаются.</p>
+<p data-fragment-index="4" class="cell cell-b cell-pad cell-i fragment visible">Клиент нескольких банков</p><p data-fragment-index="4" class="cell cell-b cell-pad cell-p fragment visible" style="padding-right:32px">Зарплата или накопления лежат в другом банке.</p><p data-fragment-index="4" class="cell cell-b cell-pad cell-p ink fragment visible">«Ручеёк» через СБП, перенос зарплаты и адресные 6% на «тратится» из этапа 1.</p>
+</div>
+<div class="foot"><p class="src">Размер сегментов — по данным портфеля. Новые деньги даёт четвёртый сегмент, рост числа сберегателей — первый.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-11"><section id="two" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Один продукт, два этапа</h2>
+<div class="row" style="gap:48px">
+<div class="panel a" style="--i:1">
+<p class="eyebrow">Этап 1 · адресно</p>
+<h3 class="h3l">Счёт, которым платят</h3>
+<p class="body">Для клиента, который переводит зарплату из другого банка. Накопительный счёт становится платёжным: ставка за поведение на запас и 6% на новые деньги, которыми он платит.</p>
+<div class="grow"></div>
+<div class="tags"><p class="tag">две ставки</p><p class="tag">оплата со счёта</p><p class="tag">автопополнение</p></div>
+<p class="small rule-t">Приводит в Сбер зарплату и накопления из других банков.</p>
+</div>
+<div class="panel a" style="--i:2">
+<p class="eyebrow">Этап 2 · для всех</p>
+<h3 class="h3l">Один счёт на все цели</h3>
+<p class="body">Деньги разложены по конвертам: цели копятся, обязательные платежи уходят сами, семья участвует. «Тратится» остаётся без процентов.</p>
+<div class="grow"></div>
+<div class="tags"><p class="tag">конверты</p><p class="tag">раскладка зарплаты</p><p class="tag">семья</p></div>
+<p class="small rule-t">Заменяет несколько счетов и ручные переводы между ними.</p>
+</div>
+</div>
+<div class="foot"><p class="src">Рекомендация — объединённый продукт: этап 1 — вход для новых клиентов, этап 2 подключается с первой целью и зарплатой.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-12"><section id="beh-rate" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Основа продукта: ставка из трёх привычек на новые деньги</h2>
+<div class="col grow between">
+<div class="eq">
+<div class="eq-b eq-w ap" style="--i:1"><p class="label">Новые деньги</p><p class="num-xl">9,5%</p><h3>Ключевая − 4,5 п.п.</h3><p class="small">зарплата, другой банк, остаток месяца</p></div>
+<div class="eq-b fragment visible" data-fragment-index="1"><p class="label mint">Приток</p><p class="num-xl mint">+1</p><h3>Денег стало больше</h3><p class="small">пришли извне и остались</p></div>
+<div class="eq-b fragment visible" data-fragment-index="2"><p class="label mint">Стаж</p><p class="num-xl mint">+1</p><h3>Деньги остаются</h3><p class="small">три месяца без снятия</p></div>
+<div class="eq-b fragment visible" data-fragment-index="3"><p class="label mint">Запас</p><p class="num-xl mint">+1</p><h3>Запаса хватает</h3><p class="small">на три месяца жизни</p></div>
+<div class="eq-b eq-w eq-t fragment visible" data-fragment-index="3"><p class="label">Максимум</p><p class="num-xl mint">12,5%</p><h3>Ключевая − 1,5 п.п.</h3><p class="small">все три привычки</p></div>
+</div>
+<p class="lead rule-t a" style="--i:9; width:1500px">Прежние деньги остаются на базовых 7,5% и переходят на сетку постепенно. Деньги, которыми клиент платит, процентов не получают.</p>
+</div>
+<div class="foot"><p class="src">Надбавки по одному процентному пункту — допущение. База 7,5% — ключевая минус 6,5 п.п.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-13"><section id="beh-rules" class="alt" data-transition="fade">
+<h2 class="a">Каждая надбавка привязана к простому правилу</h2>
+<div class="col grow between">
+<div class="tri">
+<div class="tri-i tri-first a" style="--i:1"><p class="eyebrow">+1 п.п. · приток</p><h3 class="h3l tri-h">Денег в банке стало больше</h3><p class="small">За месяц совокупные средства клиента в Сбере выросли: зарплата, пенсия или перевод из другого банка пришли и остались.</p><p class="small rule-t ink">Перевод между своими счетами и круг через другой банк не считаются.</p></div>
+<div class="tri-i a" style="--i:2"><p class="eyebrow">+1 п.п. · стаж</p><h3 class="h3l tri-h">Накопления не уменьшаются</h3><p class="small">Три месяца подряд клиент не берёт деньги из «копится». Снятие откатывает на одну ступень, а не в ноль.</p><p class="small rule-t ink">Право на ошибку: одно снятие в квартал не считается, если вернуть сумму за 30 дней.</p></div>
+<div class="tri-i a" style="--i:3"><p class="eyebrow">+1 п.п. · запас</p><h3 class="h3l tri-h">Запаса хватает на три месяца</h3><p class="small">Считается от расходов самого клиента, поэтому надбавка доступна при любом доходе.</p><p class="small rule-t ink">Потолок: сетка идёт на подушку до шести месяцев расходов.</p></div>
+</div>
+<p class="lead rule-t a" style="--i:5; width:1500px">Правила одни для всех. Сетка задана формулой от ключевой ставки и меняется вместе с ней.</p>
+</div>
+<div class="foot"><p class="src">Срок стажа, порог роста средств, окно возврата и потолок — допущения для обсуждения.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-14"><section id="anchor" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Якорь: прежние деньги переходят на сетку за 12–24 месяца</h2>
+<div class="row" style="gap:80px">
+<div class="col between" style="width:520px">
+<div class="col a" style="--i:1; gap:12px"><p class="body ink">Каждый месяц без снятия на сетку переходит</p><p class="num-l">1/12</p><p class="body">прежних денег, если зарплата приходит на счёт. Без неё — 1/24.</p></div>
+<p class="small a" style="--i:7">Якорь — всё, что лежало у клиента в Сбере в день подключения: карты, счета и вклады. Перевод между своими счетами его не уменьшает.</p>
+</div>
+<div class="cmp" style="gap:30px">
+<div class="cmp-r a" style="--i:2">
+<p class="label">День подключения: 300 000 ₽</p>
+<div class="cmp-bar"><div class="cmp-s cmp-old" style="width:571px; --i:2"><p class="bal-t bal-tb">прежние · 7,5%</p></div><div class="cmp-s cmp-flow" style="width:143px; --i:2"><p class="bal-t">0%</p></div></div>
+</div>
+<div class="cmp-r a" style="--i:3">
+<p class="label">Через 6 месяцев: 360 000 ₽</p>
+<div class="cmp-bar"><div class="cmp-s cmp-old" style="width:286px; --i:3"><p class="bal-t bal-tb">прежние · 7,5%</p></div><div class="cmp-s cmp-core" style="width:279px; --i:4"><p class="bal-t bal-tb">на сетке</p></div><div class="cmp-s cmp-add" style="width:143px; --i:5"><p class="bal-t bal-tb dark">новые</p></div><div class="cmp-s cmp-flow" style="width:143px; --i:3"><p class="bal-t">0%</p></div></div>
+</div>
+<div class="cmp-r a" style="--i:4">
+<p class="label">Через 12 месяцев: 420 000 ₽</p>
+<div class="cmp-bar"><div class="cmp-s cmp-core" style="width:565px; --i:5"><p class="bal-t bal-tb">на сетке · 9,5–12,5%</p></div><div class="cmp-s cmp-add" style="width:286px; --i:6"><p class="bal-t bal-tb dark">новые</p></div><div class="cmp-s cmp-flow" style="width:143px; --i:4"><p class="bal-t">0%</p></div></div>
+</div>
+<p class="small">Пример: зарплата приходит на счёт, клиент добавляет по 10 000 ₽ новых денег в месяц. «Тратится», 60 000 ₽, остаётся без процентов.</p>
+</div>
+</div>
+<div class="foot"><p class="src">Потолок: сетка действует на подушку до шести месяцев расходов; сверх — 7,5%, вклад или фонд. Сроки списания — допущение.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-15"><section id="goals" class="alt" data-transition="fade">
+<h2 class="a">Цель трайба — новые деньги и подушка, а не остаток на счёте</h2>
+<div class="col grow between">
+<div class="tri">
+<div class="tri-i tri-first a" style="--i:1"><p class="eyebrow">Метрика 1</p><h3 class="h3l">Чистый приток</h3><p class="small">Прирост совокупных средств клиента в банке: карты, счета и вклады вместе. Перевод с карты на счёт его не меняет.</p></div>
+<div class="tri-i a" style="--i:2"><p class="eyebrow">Метрика 2</p><h3 class="h3l">Подушка в месяцах</h3><p class="small">Запас клиента в месяцах его расходов. Доля клиентов с подушкой от одного месяца и от трёх.</p></div>
+<div class="tri-i a" style="--i:3"><p class="eyebrow">Метрика 3</p><h3 class="h3l">Число сберегателей</h3><p class="small">Клиенты, которые пополняют «копится» три месяца подряд. Сегодня 37% россиян не откладывают совсем.</p></div>
+</div>
+<p class="lead rule-t a" style="--i:5; width:1500px">Остаток на накопительном счёте остаётся контрольной метрикой: его можно вырастить переводом с карт и потерять на этом маржу.</p>
+</div>
+<div class="foot"><p class="src">Целевые значения — после расчёта на данных портфеля. Опрос НАФИ, апрель 2026.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-16"><section id="c1-idea" class="alt" data-transition="fade">
+<video class="o3d" src="assets/r3d-layers-video.mp4" poster="assets/r3d-layers-poster.webp" autoplay loop muted playsinline preload="metadata" aria-label="Стеклянный блок счёта: большой изумрудный слой запаса и тонкая плита денег на каждый день, вокруг кольцо ставки с двумя горящими дугами из трёх"></video>
+<div class="intro intro-n">
+<p class="eyebrow a">Этап 1 · адресное предложение</p>
+<h1 class="cover-h a" style="--i:1">Счёт, которым платят</h1>
+<p class="lead a" style="--i:2">Для клиента, который переводит зарплату из другого банка. Ставка за поведение идёт на запас. Остальным он платит, и эти новые деньги тоже приносят процент.</p>
+</div>
+<div class="tag3" style="left:1020px; top:210px; --i:0"><p class="label mint">на каждый день · 6%</p><p class="tag3-k">60 000 ₽</p></div>
+<div class="tag3" style="left:1020px; top:820px; --i:1"><p class="label mint">запас · от 9,5% до 12,5%</p><p class="tag3-k">240 000 ₽</p></div>
+<div class="tag3" style="left:1450px; top:820px; --i:2"><p class="label mint">кольцо ставки</p><p class="tag3-k">2 из 3 надбавок</p></div>
+<div class="foot"><p class="src">Пример: 300 000 ₽ новых денег. Деньги, которые уже лежали на картах Сбера, остаются без процентов.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-17"><section id="c1-rules" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Два слоя денег на одном счёте</h2>
+<div class="quad">
+<div class="q a" style="--i:1"><p class="q-num">01</p><h3 class="h3l">Запас</h3><p class="small">Клиент сам выбирает, сколько оставить в запасе: вводит сумму или берёт совет банка. Деньги доступны всегда. Ставка растёт с каждой надбавкой.</p><div class="tags"><p class="tag">от 9,5% до 12,5%</p></div></div>
+<div class="q q-r a" style="--i:2"><p class="q-num">02</p><h3 class="h3l">Деньги на каждый день</h3><p class="small">Всё, что сверх запаса. Этими деньгами платят картой, через SberPay и переводом. Процент идёт только на новые деньги.</p><div class="tags"><p class="tag">6% на новые, прежние — без процентов</p></div></div>
+<div class="q q-b a" style="--i:3"><p class="q-num">03</p><h3 class="h3l">Запас можно тронуть</h3><p class="small">Ничего не списывается: клиент недополучает проценты, стаж откатывается на одну ступень. Если вернуть сумму за 30 дней, стаж сохранится.</p><div class="tags"><p class="tag tag-2">цена видна в рублях до оплаты</p></div></div>
+<div class="q q-r q-b a" style="--i:4"><p class="q-num">04</p><h3 class="h3l">Остаток месяца уходит в запас</h3><p class="small">В конце месяца счёт показывает доход и предлагает оставить больше. Автопополнение с зарплаты включено сразу, остальные способы клиент включает сам.</p><div class="tags"><p class="tag tag-2">в примере — запас +12 400 ₽</p></div></div>
+</div>
+<div class="foot"><p class="src">Запас без блокировки денег: снижается ставка на снятую сумму. Конструкцию нужно сверить с юристами (ст. 858 ГК).</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-18"><section id="c1-video" class="alt" data-transition="push">
+<div class="jr">
+<div class="jl" style="width:520px">
+<div class="col" style="gap:40px">
+<h2 class="a">Клиент платит со счёта, а ставка растёт за привычки</h2>
+<p class="body a" style="--i:2">Запись прототипа: от оплаты до новой надбавки.</p>
+</div>
+<p class="body mint a" style="--i:4">За декабрь ставка на запас выросла с 11,5% до 12,5%.</p>
+</div>
+<video class="vid" src="assets/c1-video.mp4" poster="assets/c1-poster.webp" autoplay loop muted playsinline preload="metadata" style="width:411px; height:792px" aria-label="Запись прототипа: оплата через SberPay с накопительного счёта, кольцо ставки из трёх надбавок, итоги месяца с новой надбавкой и запас на три месяца"></video>
+<div class="steps">
+<div class="srcitem a" style="--i:1"><p class="srcnum">1</p><div class="col" style="gap:4px"><h3>Оплата SberPay</h3><p class="small">Источник — накопительный счёт, деньги на каждый день.</p></div></div>
+<div class="srcitem a" style="--i:2"><p class="srcnum">2</p><div class="col" style="gap:4px"><h3>Счёт после покупки</h3><p class="small">Запаса хватит на 2,9 месяца жизни. Две надбавки из трёх.</p></div></div>
+<div class="srcitem a" style="--i:3"><p class="srcnum">3</p><div class="col" style="gap:4px"><h3>Итоги месяца</h3><p class="small">Счёт заработал 2 650 ₽. Остаток переезжает в запас.</p></div></div>
+<div class="srcitem a" style="--i:4"><p class="srcnum">4</p><div class="col" style="gap:4px"><h3>Новая надбавка</h3><p class="small">Запаса хватает на три месяца — ставка выросла до 12,5%.</p></div></div>
+<div class="srcitem a" style="--i:5"><p class="srcnum">5</p><div class="col" style="gap:4px"><h3>Следующая ступень</h3><p class="small">Шесть месяцев, дальше — вклад или фонд.</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Запись прототипа версии 2, 26 секунд, идёт по кругу. <a href="../prototype/stages/" style="color:#57D98A">Открыть кликабельный прототип</a></p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-19"><section id="c1-j1" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Открытие занимает два шага</h2>
+<p class="body a" style="--i:2">Клиент выбирает, сколько оставить в запасе, и включает автопополнение. Сумму можно ввести самому или взять совет банка.</p>
+</div>
+<p class="body mint a" style="--i:4">В день открытия ставка 10,5%: сетка от 9,5% и надбавка за приток.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">Предложение</p><img class="ph" src="assets/c1-offer.webp" alt="Экран предложения: кольцо ставки 10,5% с первого дня, на запас от 10,5% до 12,5%, на каждый день 6% на новые деньги"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">Шаг 1. Запас</p><img class="zm" src="assets/z-c1-floor.webp" alt="Выбор запаса: 240 000 ₽, сумму можно ввести, три пресета — совет банка, один и два месяца трат" style="width:488px; height:350px; border-radius:34px"></div><div class="zcol" style="--i:2"><p class="cap">Шаг 2. Автопополнение</p><img class="zm" src="assets/z-c1-stream.webp" alt="Прогноз автопополнения: плюс 12 000 ₽ в месяц, включено только пополнение с зарплаты" style="width:529px; height:320px; border-radius:37px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты прототипа для iPhone 18 Pro Max. Суммы и ставки — пример.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-20"><section id="c1-j2" class="alt" data-transition="push">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Оплата идёт с денег на каждый день</h2>
+<p class="body a" style="--i:2">Если их не хватает, клиент видит последствие каждого варианта. Ни один не выбран заранее.</p>
+</div>
+<p class="body mint a" style="--i:4">Из запаса ничего не списывается: клиент недополучит около 177 ₽ процентов в месяц.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1. Оплата SberPay</p><img class="ph" src="assets/c1-pay.webp" alt="Экран оплаты SberPay: источник списания — накопительный счёт, деньги на каждый день"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">2. Не хватает: три варианта без предвыбора</p><img class="zm" src="assets/z-c1-dip.webp" alt="Шторка «На каждый день не хватает 18 470 ₽»: доплатить с карты, взять из запаса со снижением с 2,9 до 2,6 месяца или оплатить частями с пометкой о кредитной истории" style="width:657px; height:745px; border-radius:57px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупный фрагмент прототипа для iPhone 18 Pro Max. Вернёте сумму за 30 дней — стаж сохранится.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-21"><section id="c1-j3" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Главное число счёта — месяцы жизни</h2>
+<p class="body a" style="--i:2">Ставка стоит рядом: сегодня, максимум и средняя по счёту. Когда запас дошёл до трёх месяцев, ставка выросла.</p>
+</div>
+<p class="body mint a" style="--i:4">Следующая ступень — шесть месяцев. Дальше счёт предлагает вклад или фонд.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1. Счёт</p><img class="ph" src="assets/c1-home.webp" alt="Главный экран: запаса хватит на 2,9 месяца жизни, на счёте 300 000 ₽, кольцо ставки 11,5%"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">2. Итоги месяца</p><img class="zm" src="assets/z-c1-month-a.webp" alt="Итоги декабря: счёт заработал 2 650 ₽" style="width:587px; height:270px; border-radius:41px"></div><div class="zcol" style="--i:2"><p class="cap">3. Мой запас</p><img class="zm" src="assets/z-c1-growth.webp" alt="Три месяца жизни набраны, следующая ступень — шесть месяцев, ставка до 12,5% действует на запас до 504 000 ₽" style="width:573px; height:400px; border-radius:40px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты прототипа для iPhone 18 Pro Max. Расходы семьи в примере — около 84 000 ₽ в месяц.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-22"><section id="c1-client" class="alt" data-transition="push">
+<h2 class="a">Клиент, который переводит зарплату, получает доход с первого дня</h2>
+<div class="row" style="gap:80px">
+<div class="col between" style="width:560px">
+<div class="col a" style="--i:1; gap:12px"><p class="body ink">Доход клиента — до</p><p class="num-l">33 600 ₽</p><p class="body">в год на 300 000 ₽ новых денег. С первого дня — 28 800 ₽.</p></div>
+<p class="small a" style="--i:6">Действующий клиент получает сетку на новые деньги сразу, а прежние переходят на неё за 12–24 месяца.</p>
+</div>
+<div class="cmp">
+<div class="cmp-r a" style="--i:2">
+<p class="label">Сегодня в Сбере: накопительный счёт и карта</p>
+<div class="cmp-bar"><div class="cmp-s cmp-old" style="width:504px; --i:2"><p class="bal-t bal-tb">18 000 ₽ в год</p></div></div>
+<p class="small">240 000 ₽ на счёте под базовые 7,5% и 60 000 ₽ на карте без процентов</p>
+</div>
+<div class="cmp-r a" style="--i:3">
+<p class="label">Счёт, которым платят: от 28 800 до 33 600 ₽ в год</p>
+<div class="cmp-bar"><div class="cmp-s cmp-core" style="width:705px; --i:3"><p class="bal-t bal-tb">запас под 10,5%: 25 200 ₽</p></div><div class="cmp-s cmp-add" style="width:134px; --i:4"><p class="bal-t bal-tb dark">+4 800 ₽</p></div><div class="cmp-s cmp-flow" style="width:101px; --i:5"><p class="bal-t">3 600</p></div></div>
+<p class="small">Надбавка за приток есть с первого дня. Стаж и запас добавляют по 2 400 ₽ в год. Ещё 3 600 ₽ приносят новые деньги на каждый день под 6%.</p>
+</div>
+</div>
+</div>
+<div class="foot"><p class="src">Базовая ставка счёта Сбера — 7,5% (условия с 27.10.2026, vbr.ru). Ставки нового счёта — допущения.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-23"><section id="c1-unit" data-transition="fade">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Ставка за поведение дороже приветственной, окупают её только новые деньги</h2>
+<div class="row" style="gap:64px">
+<div class="col between a" style="width:600px; --i:1">
+<div class="col" style="gap:12px">
+<p class="body ink">Маржа на 100 ₽ новых денег на сетке</p>
+<p class="num-l" style="white-space:nowrap">+1,5–4,5 ₽</p>
+<p class="small">против 5,3 ₽ на приветственной ставке в годовом базисе и 6,5 ₽ на базовой. Поэтому сетка идёт только на новые деньги.</p>
+</div>
+<p class="body mint fragment visible">Адресный клиент с 300 000 ₽ новых денег приносит от 8 400 до 15 600 ₽ в год. Вся эта маржа — новая.</p>
+</div>
+<div class="mg grow a" style="--i:2">
+<div class="mg-h"><p class="label" style="width:810px">На 100 ₽ остатка в год платим клиенту</p><p class="label" style="width:190px; text-align:right">Маржа банка</p></div>
+<div class="mg-r" style="height:96px; --i:3"><div class="mg-n"><p class="body ink">Базовая</p><p class="label">7,5% · прежние деньги</p></div><div class="mg-t"><div class="mg-p" style="width:244px; --i:3"><p class="bal-t bal-tb">7,5 ₽</p></div><div class="mg-g" style="left:250px; width:205px; --i:3"><p class="bal-t">остаётся банку</p></div></div><p class="mg-v">+6,5 ₽</p></div><div class="mg-r" style="height:96px; --i:4"><div class="mg-n"><p class="body ink">Приветственная</p><p class="label">за год 8,7%</p></div><div class="mg-t"><div class="mg-p" style="width:283px; --i:4"><p class="bal-t bal-tb">8,7 ₽</p></div><div class="mg-g" style="left:289px; width:166px; --i:4"></div></div><p class="mg-v">+5,3 ₽</p></div><div class="mg-r" style="height:96px; --i:5"><div class="mg-n"><p class="body ink">Сетка</p><p class="label">9,5–12,5% · новые</p></div><div class="mg-t"><div class="mg-p mg-pg" style="width:309px; --i:5"><p class="bal-t bal-tb">9,5 ₽</p></div><div class="mg-p mg-pr" style="left:315px; width:92px; --i:5"><p class="bal-t">до 12,5</p></div><div class="mg-g" style="left:412px; width:43px; --i:5"></div></div><p class="mg-v mint">+1,5–4,5 ₽</p></div><div class="mg-r" style="height:96px; --i:6"><div class="mg-n"><p class="body ink">На каждый день</p><p class="label">6% · новые деньги</p></div><div class="mg-t"><div class="mg-p mg-pg" style="width:195px; --i:6"><p class="bal-t bal-tb">6 ₽</p></div><div class="mg-g" style="left:201px; width:254px; --i:6"></div></div><p class="mg-v mint">+8 ₽</p></div><div class="mg-r" style="height:96px; --i:7"><div class="mg-n"><p class="body ink">«Тратится»</p><p class="label">прежние деньги</p></div><div class="mg-t"><div class="mg-g" style="left:0; width:455px; --i:7"><p class="bal-t">весь доход остаётся банку</p></div></div><p class="mg-v">+14 ₽</p></div>
+<div class="mg-line" style="height:488px"></div>
+<p class="mg-ll" style="top:534px">размещаем по ключевой за 14 ₽</p>
+</div>
+</div>
+<div class="foot"><p class="src">Размещение по ключевой 14%. Приветственная — Сбер: 14,5% два месяца, затем 7,5%. Без резервов, взносов в АСВ и расходов.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-24"><section id="c1-risks" class="alt" data-transition="push">
+<h2 class="a">Риски этапа 1 и чем их закрыть</h2>
+<div class="risks">
+<p class="label risk risk-h">Риск</p><p class="label risk-do risk-h">Чем закрыть</p>
+<div class="risk a" style="--i:1"><div class="dot"></div><h3>6% на «тратится» получат прежние остатки с карт</h3></div><div class="risk-do a" style="--i:1"><p class="body">Процент идёт только на прирост над якорем. Деньги, которые уже лежали на картах Сбера, остаются без процентов.</p></div>
+<div class="risk a" style="--i:2"><div class="dot"></div><h3>Рассрочка подменяет снятие из запаса</h3></div><div class="risk-do a" style="--i:2"><p class="body">Ни один вариант не выбран заранее. На экране есть пометка о кредитной истории. Сверить с законом о рассрочке.</p></div>
+<div class="risk a" style="--i:3"><div class="dot"></div><h3>Юридическая конструкция запаса</h3></div><div class="risk-do a" style="--i:3"><p class="body">Не блокировать деньги, а снижать ставку на снятую сумму. Сверить со ст. 858 ГК.</p></div>
+<div class="risk a" style="--i:4"><div class="dot"></div><h3>Две ставки и три надбавки сложны для новичка</h3></div><div class="risk-do a" style="--i:4"><p class="body">Главное число — месяцы жизни. Ставка показана как «сегодня → до», рядом — средняя по счёту.</p></div>
+</div>
+<div class="foot"><p class="src">Якорь — совокупные средства клиента в Сбере на день подключения: карты, счета и вклады.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-25"><section id="c2-idea" class="alt" data-transition="fade">
+<video class="o3d" src="assets/r3d-env-video.mp4" poster="assets/r3d-env-poster.webp" autoplay loop muted playsinline preload="metadata" aria-label="Шесть стеклянных пластин-конвертов разной высоты: запас, отпуск, кредит, ЖКХ, детский сад и свободные деньги"></video>
+<div class="intro intro-n">
+<p class="eyebrow a">Этап 2 · для всех клиентов</p>
+<h1 class="cover-h a" style="--i:1">Один счёт на все цели</h1>
+<p class="lead a" style="--i:2">Клиент открывает один счёт вместо нескольких. Деньги на нём разложены по конвертам: под цели, обязательные платежи и свободные траты.</p>
+<div class="grow"></div>
+<div class="bal a" style="--i:4; gap:20px">
+<div class="bal-r" style="height:56px"><div class="bal-a k-g" style="width:396px"></div><div class="bal-a k-b" style="width:121px"></div><div class="bal-a k-c" style="width:62px"></div><div class="bal-a k-a" style="width:25px; padding:0"></div><div class="bal-a k-v" style="width:32px; padding:0"></div><div class="bal-a k-n" style="width:154px"></div></div>
+<div style="display:flex; gap:36px"><div class="lg"><div class="sw k-g"></div><p class="small">Запас 150 000</p></div><div class="lg"><div class="sw k-b"></div><p class="small">Отпуск 46 000</p></div><div class="lg"><div class="sw k-c"></div><p class="small">Кредит 23 400</p></div></div>
+<div style="display:flex; gap:36px"><div class="lg"><div class="sw k-a"></div><p class="small">ЖКХ 9 500</p></div><div class="lg"><div class="sw k-v"></div><p class="small">Детский сад 12 000</p></div><div class="lg"><div class="sw k-n"></div><p class="small">Свободные 59 100</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Пример: семья, на счёте 300 000 ₽. Ставка за поведение идёт на запас и цели; платежи и свободные — без процентов.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-26"><section id="c2-rules" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Конверты двух типов и одно правило</h2>
+<div class="quad">
+<div class="q a" style="--i:1"><p class="q-num">01</p><h3 class="h3l">Конверт-цель</h3><p class="small">Сумма и дата. Счёт сам считает взнос с каждого поступления и показывает, когда цель будет готова и как прийти раньше.</p><div class="tags"><p class="tag">Отпуск: 120 000 ₽ к 1 июня</p></div></div>
+<div class="q q-r a" style="--i:2"><p class="q-num">02</p><h3 class="h3l">Конверт-платёж</h3><p class="small">Кредит, ЖКХ, детский сад. Деньги откладываются заранее, платёж уходит сам в срок. Если не хватит, счёт предупредит за три дня.</p><div class="tags"><p class="tag">44 900 ₽ в месяц</p></div></div>
+<div class="q q-b a" style="--i:3"><p class="q-num">03</p><h3 class="h3l">Раскладка зарплаты</h3><p class="small">Правило задаётся один раз: сначала платежи, потом цели, остальное свободно. Оно работает на аванс и на зарплату; первую раскладку клиент подтверждает.</p><div class="tags"><p class="tag tag-2">120 000 ₽ в месяц двумя поступлениями</p></div></div>
+<div class="q q-r q-b a" style="--i:4"><p class="q-num">04</p><h3 class="h3l">Семья</h3><p class="small">Конверт можно открыть близким: вносить, видеть или тратить. Пополнить по ссылке через СБП можно из любого банка.</p><div class="tags"><p class="tag tag-2">роли и ссылка «скинуться»</p></div></div>
+</div>
+<div class="foot"><p class="src">Проценты идут на запас и конверты-цели. Конверты-платежи и свободные деньги — без процентов: их ценность в автоматике.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-27"><section id="c2-split" class="alt" data-transition="fade">
+<h2 class="a">Каждое поступление раскладывается по конвертам само</h2>
+<div class="row" style="gap:80px">
+<div class="ways" style="width:1040px">
+<div class="way" style="--i:1"><p class="way-l">Кредит</p><div class="way-c"><div class="wb k-c" style="width:203px; --i:1"></div></div><p class="way-v">23 400 ₽</p></div>
+<div class="way" style="--i:2"><p class="way-l">ЖКХ</p><div class="way-c"><div class="wb k-a" style="width:82px; --i:2"></div></div><p class="way-v">9 500 ₽</p></div>
+<div class="way" style="--i:3"><p class="way-l">Детский сад</p><div class="way-c"><div class="wb k-v" style="width:104px; --i:3"></div></div><p class="way-v">12 000 ₽</p></div>
+<div class="way" style="--i:4"><p class="way-l">Отпуск</p><div class="way-c"><div class="wb k-b" style="width:108px; --i:4"></div></div><p class="way-v">12 400 ₽</p></div>
+<div class="way" style="--i:5"><p class="way-l">Запас</p><div class="way-c"><div class="wb k-g" style="width:104px; --i:5"></div></div><p class="way-v">12 000 ₽</p></div>
+<div class="way" style="--i:6"><p class="way-l">Свободные</p><div class="way-c"><div class="wb k-n" style="width:440px; --i:6"></div></div><p class="way-v">50 700 ₽</p></div>
+</div>
+<div class="col between grow">
+<div class="col a" style="--i:2; gap:8px"><p class="num-l">120 000 ₽</p><p class="body">в месяц: аванс 25-го и зарплата 10-го</p></div>
+<div class="col" style="gap:0">
+<div class="col rule-t a" style="--i:4; gap:4px; padding-bottom:20px"><p class="num-m">44 900 ₽</p><p class="small">платежи закрыты до трат</p></div>
+<div class="col rule-t a" style="--i:5; gap:4px; padding-bottom:20px"><p class="num-m">24 400 ₽</p><p class="small">цели и запас</p></div>
+<div class="col rule-t a" style="--i:6; gap:4px"><p class="num-m">50 700 ₽</p><p class="small">свободные, ими платят · без процентов</p></div>
+</div>
+</div>
+</div>
+<div class="foot"><p class="src">Пример раскладки за месяц: аванс 48 000 ₽ и зарплата 72 000 ₽. Порядок и суммы клиент задаёт один раз.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-28"><section id="c2-video" data-transition="push">
+<div class="jr">
+<div class="jl" style="width:520px">
+<div class="col" style="gap:40px">
+<h2 class="a">Зарплата пришла: платежи закрыты, цели пополнены</h2>
+<p class="body a" style="--i:2">Запись прототипа: от уведомления о зарплате до прогноза цели.</p>
+</div>
+<p class="body mint a" style="--i:4">Клиент ничего не переводит руками.</p>
+</div>
+<video class="vid" src="assets/c2-video.mp4" poster="assets/c2-poster.webp" autoplay loop muted playsinline preload="metadata" style="width:411px; height:792px" aria-label="Запись прототипа: зарплата раскладывается по конвертам, счёт обновляется, в общий конверт вносит второй участник, прогноз цели"></video>
+<div class="steps">
+<div class="srcitem a" style="--i:1"><p class="srcnum">1</p><div class="col" style="gap:4px"><h3>Зарплата</h3><p class="small">Уведомление: 72 000 ₽ раскладываются.</p></div></div>
+<div class="srcitem a" style="--i:2"><p class="srcnum">2</p><div class="col" style="gap:4px"><h3>Раскладка</h3><p class="small">Шесть конвертов пополнены, у каждого видна доля поступления.</p></div></div>
+<div class="srcitem a" style="--i:3"><p class="srcnum">3</p><div class="col" style="gap:4px"><h3>Счёт</h3><p class="small">300 000 ₽, запаса хватит на 1,8 месяца жизни.</p></div></div>
+<div class="srcitem a" style="--i:4"><p class="srcnum">4</p><div class="col" style="gap:4px"><h3>Общий конверт</h3><p class="small">Максим внёс 6 000 ₽ на отпуск.</p></div></div>
+<div class="srcitem a" style="--i:5"><p class="srcnum">5</p><div class="col" style="gap:4px"><h3>Прогноз</h3><p class="small">Цель будет готова 1 июня.</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Запись прототипа версии 2, 21 секунда, идёт по кругу. <a href="../prototype/stages/" style="color:#57D98A">Открыть кликабельный прототип</a></p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-29"><section id="c2-j1" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Счёт настраивается один раз</h2>
+<p class="body a" style="--i:2">Клиент создаёт конверты и задаёт правило раскладки. Оно работает на аванс и на зарплату.</p>
+</div>
+<p class="body mint a" style="--i:4">Первую раскладку клиент подтверждает, дальше счёт раскладывает сам.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1. Новый конверт</p><img class="ph" src="assets/c2-new.webp" alt="Экран нового конверта: цель «Отпуск», 120 000 ₽ к 1 июня, по 12 400 ₽ с зарплаты"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">2. Раскладка: зарплата и аванс</p><img class="zm" src="assets/z-c2-rule-b.webp" alt="Правило раскладки: 120 000 ₽ в месяц, зарплата 10-го 72 000 ₽ и аванс 25-го 48 000 ₽" style="width:736px; height:328px; border-radius:47px"></div><div class="zcol" style="--i:2"><p class="cap">3. Счёт</p><img class="zm" src="assets/z-c2-home.webp" alt="Счёт на все цели: запаса хватит на 1,8 месяца жизни, на счёте 300 000 ₽" style="width:710px; height:340px; border-radius:45px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты прототипа для iPhone 18 Pro Max. Суммы — пример.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-30"><section id="c2-j2" data-transition="push">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Платежи уходят сами</h2>
+<p class="body a" style="--i:2">Незапланированная трата решается открыто: клиент видит последствие каждого варианта, ни один не выбран заранее.</p>
+</div>
+<p class="body mint a" style="--i:4">Конверты с платежами защищены: их счёт не предлагает.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1. Платёж ушёл сам</p><img class="ph" src="assets/c2-autopay.webp" alt="Уведомление: ЖКХ оплачено из конверта, делать ничего не нужно"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">2. Трата вне плана: откуда взять</p><img class="zm" src="assets/z-c2-borrow.webp" alt="Шторка «В свободных не хватает 11 800 ₽»: взять из «Отпуска», взять из запаса или оплатить частями с пометкой о кредитной истории" style="width:657px; height:745px; border-radius:57px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупный фрагмент прототипа для iPhone 18 Pro Max. Суммы — пример.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-31"><section id="c2-j3" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Конверт можно разделить с семьёй</h2>
+<p class="body a" style="--i:2">Участники вносят, видят или тратят. Пополнить по ссылке можно из любого банка: отправитель видит имя получателя.</p>
+</div>
+<p class="body mint a" style="--i:4">На переводы по ссылке действует лимит: до 30 000 ₽ в месяц.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1. Общий конверт</p><img class="ph" src="assets/c2-family.webp" alt="Общий конверт «Отпуск»: Анна и Максим, лента взносов"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">2. Доступ и ссылка</p><img class="zm" src="assets/z-c2-invite.webp" alt="Ссылка «скинуться»: отправитель увидит получателя, действует 30 дней, до 30 000 ₽ в месяц" style="width:610px; height:310px; border-radius:43px"></div><div class="zcol" style="--i:2"><p class="cap">3. Прогноз цели</p><img class="zm" src="assets/z-c2-forecast.webp" alt="Прогноз цели: будет готова 1 июня, три способа прийти раньше" style="width:578px; height:360px; border-radius:41px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты прототипа для iPhone 18 Pro Max. Права семьи на конверт требуют юридической проработки.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-32"><section id="c2-client" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Семья видит весь бюджет на одном счёте</h2>
+<div class="col grow between">
+<div class="tri">
+<div class="tri-i tri-first a" style="--i:1"><p class="num-xl mint">1 счёт</p><h3>Вместо счёта под каждую цель</h3><p class="small">Цели, обязательные платежи и свободные деньги — в одном месте.</p></div>
+<div class="tri-i a" style="--i:2"><p class="num-xl mint">44 900 ₽</p><h3>Платежей в месяц уходят сами</h3><p class="small">Кредит, ЖКХ и детский сад закрыты в день поступления.</p></div>
+<div class="tri-i a" style="--i:3"><p class="num-xl mint">24 500 ₽</p><h3>Процентов в год на 196 000 ₽ — максимум</h3><p class="small">При трёх надбавках 12,5% идут на запас и цели. Без надбавок — 18 620 ₽.</p></div>
+</div>
+<p class="lead rule-t a" style="--i:5; width:1500px">Проценты получают запас и цели. Платежи и свободные деньги работают иначе: уходят в срок сами и не требуют переводов между счетами.</p>
+</div>
+<div class="foot"><p class="src">Пример семьи через год после подключения: платежи 44 900 ₽ в месяц, на счёте 300 000 ₽, якорь списан.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-33"><section id="c2-unit" class="alt" data-transition="fade">
+<h2 class="a">Проценты на «тратится» — самая дорогая надбавка на рубль остатка</h2>
+<div class="row" style="gap:64px">
+<div class="col between a" style="width:560px; --i:1">
+<div class="col" style="gap:12px">
+<p class="body ink">Маржа на клиента с 300 000 ₽ в первый день</p>
+<p class="num-l" style="white-space:nowrap">24 000 ₽</p>
+<p class="small">как сегодня: прежние деньги остаются на 7,5%, «тратится» — без процентов. В версии 1 маржа падала до 8 400–15 600 ₽.</p>
+</div>
+<p class="body mint fragment visible">6% на «тратится» стоят 6 ₽ на 100 ₽ остатка, сетка — 2–5 ₽ сверх базы. На 1 трлн ₽ это 60 млрд ₽ в год.</p>
+</div>
+<div class="col between grow">
+<div class="rg">
+<div class="rg-h"><p class="label" style="width:300px">Вариант ставки</p><p class="label" style="width:238px; text-align:right">Маржа в год</p><p class="label" style="padding-left:32px">Порог новых денег</p></div>
+<div class="rg-r" style="--i:2"><p class="rg-n rg-n2">Версия 1: 6% на «тратится»</p><p class="rg-m loss">8 400–15 600 ₽</p><div class="rg-t rg-t2"><div class="rg-ax rg-ax2"></div><div class="rg-b rg-bl" style="left:235px; width:70px; --i:2"></div><p class="rg-v loss" style="left:317px">50–65%</p></div></div>
+<div class="rg-r" style="--i:3"><p class="rg-n rg-n2">Без процентов на «тратится»</p><p class="rg-m">12 000–19 200 ₽</p><div class="rg-t rg-t2"><div class="rg-ax rg-ax2"></div><div class="rg-b" style="left:136px; width:99px; --i:3"></div><p class="rg-v" style="left:247px">29–50%</p></div></div>
+<div class="rg-r" style="--i:4"><p class="rg-n rg-n2">Плюс якорь, первые 3–6 месяцев</p><p class="rg-m mint">24 000 ₽</p><div class="rg-t rg-t2"><div class="rg-ax rg-ax2"></div><div class="rg-b rg-bm" style="left:0px; width:94px; --i:4"></div><p class="rg-v mint" style="left:106px">0–20%</p></div></div>
+<div class="rg-x rule-t" style="padding-top:0"><p class="rg-xl" style="left:530px">0%</p><p class="rg-xl" style="left:765px">50%</p><p class="rg-xl" style="left:960px; text-align:right">100%</p></div>
+</div>
+<p class="small rule-t a" style="--i:6">Конверты окупает то, чего нет в марже: зарплата приходит на счёт, платежи по кредиту и ЖКХ привязывают клиента, деньги под цели не уходят за ставкой.</p>
+</div>
+</div>
+<div class="foot"><p class="src">Клиент: 240 000 ₽ копится, 60 000 ₽ тратится. Диапазоны — от клиента со всеми надбавками до клиента без них.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-34"><section id="c2-risks" data-transition="push">
+<h2 class="a">Риски этапа 2 и чем их закрыть</h2>
+<div class="risks">
+<p class="label risk risk-h">Риск</p><p class="label risk-do risk-h">Чем закрыть</p>
+<div class="risk a" style="--i:1"><div class="dot"></div><h3>Клиент ждёт проценты на платежи и свободные</h3></div><div class="risk-do a" style="--i:1"><p class="body">Ценность «тратится» — в автоматике: платежи уходят сами. Процент идёт на запас и цели.</p></div>
+<div class="risk a" style="--i:2"><div class="dot"></div><h3>Чьи деньги в общем конверте</h3></div><div class="risk-do a" style="--i:2"><p class="body">Счёт остаётся у владельца, участникам — права на конверт. Альтернатива — совместный счёт по 212-ФЗ.</p></div>
+<div class="risk a" style="--i:3"><div class="dot"></div><h3>Доход приходит двумя частями или нерегулярно</h3></div><div class="risk-do a" style="--i:3"><p class="body">Правило работает на каждое поступление: аванс и зарплату. Первая раскладка — с подтверждением.</p></div>
+<div class="risk a" style="--i:4"><div class="dot"></div><h3>Автоплатёж ушёл с ошибкой</h3></div><div class="risk-do a" style="--i:4"><p class="body">Лимит на платёж, предупреждение за три дня, отмена в одно касание.</p></div>
+</div>
+<div class="foot"><p class="src">Юридическую конструкцию общих конвертов и автоплатежей нужно сверить с юристами.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-35"><section id="u-idea" class="alt" data-transition="fade">
+<video class="o3d" src="assets/r3d-union-video.mp4" poster="assets/r3d-union-poster.webp" autoplay loop muted playsinline preload="metadata" aria-label="Стеклянный блок счёта, на котором стоят пластины-конверты, вокруг кольцо ставки"></video>
+<div class="intro intro-n">
+<p class="eyebrow a">Рекомендация · объединённый продукт</p>
+<h1 class="cover-h a" style="--i:1">Один счёт: копит, платит и раскладывает</h1>
+<p class="lead a" style="--i:2">Счёт, которым платят, открывает продукт; конверты появляются с первой целью и зарплатой. Прежние деньги остаются на 7,5%, новые получают ставку за поведение.</p>
+<div class="grow"></div>
+<div class="bal a" style="--i:4">
+<div class="bal-r"><div class="bal-a" style="width:627px"><p class="bal-t bal-tb">Копится · 7,5% и до 12,5%</p><p class="bal-t">203 600 ₽</p></div><div class="bal-b" style="width:187px; justify-content:center"><p class="bal-t">60 800 ₽</p></div></div>
+<div style="display:flex; gap:6px"><p class="small" style="width:627px">запас и цели: прежние и новые деньги</p><p class="small mint" style="white-space:nowrap">тратится · без процентов</p></div>
+</div>
+</div>
+<div class="foot"><p class="src">Пример: 10 декабря, после зарплаты. На счёте 264 400 ₽.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-36"><section id="u-map" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Что взято из каждого этапа</h2>
+<div class="gridc a" style="--i:2; grid-template-columns: 400px 480px 1fr">
+<p class="cell cell-h">Из этапа 1</p><p class="cell cell-h cell-p">Из этапа 2</p><p class="cell cell-h cell-hm cell-p">В объединённом продукте</p>
+<p class="cell cell-b cell-pad">Запас</p><p class="cell cell-b cell-pad cell-p">Конверты-цели</p><p class="cell cell-b cell-pad cell-p cell-i">Копится: запас и цели, новые деньги — под ставку за поведение</p>
+<p class="cell cell-b cell-pad">Деньги на каждый день</p><p class="cell cell-b cell-pad cell-p">Конверты-платежи и свободные</p><p class="cell cell-b cell-pad cell-p cell-i">Тратится: платежи уходят сами, свободными платят, процентов нет</p>
+<p class="cell cell-b cell-pad">Цена снятия из запаса</p><p class="cell cell-b cell-pad cell-p">Трата вне плана</p><p class="cell cell-b cell-pad cell-p cell-i">Один экран без предвыбора: из цели, из запаса, с карты или частями</p>
+<p class="cell cell-b cell-pad">Итоги месяца</p><p class="cell cell-b cell-pad cell-p">Раскладка зарплаты</p><p class="cell cell-b cell-pad cell-p cell-i">Каждое поступление раскладывается, остаток месяца уходит в запас и цели</p>
+<p class="cell cell-b cell-pad">Месяцы жизни</p><p class="cell cell-b cell-pad cell-p">Прогноз цели</p><p class="cell cell-b cell-pad cell-p cell-i">Главное число счёта и экран аналитики: запас, ставка, цели, доход</p>
+</div>
+<div class="foot"><p class="src">Порог новых денег объединённого продукта: 0% в первый день, 29–50% после списания якоря.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-37"><section id="compare" data-transition="fade">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Два этапа одного продукта рядом</h2>
+<div class="gridc a" style="--i:2">
+<p class="cell cell-h"></p><p class="cell cell-h cell-hm cell-p">Этап 1 · счёт, которым платят</p><p class="cell cell-h cell-hm cell-p">Этап 2 · один счёт на все цели</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Для кого</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">клиент, чья зарплата и накопления лежат в другом банке</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">действующий клиент: семья с платежами и целями</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Что меняется</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">счёт становится платёжным</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">один счёт заменяет несколько</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Ставка на «тратится»</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">6% на новые деньги</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">без процентов</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Что получает клиент</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">до 33 600 ₽ в год на 300 000 ₽ новых денег</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">сетку на прирост, автоплатежи, цели на одном экране</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Маржа на клиента в год</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">8 400–15 600 ₽, вся новая</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">24 000 ₽ в первый день, 12 000–19 200 ₽ после списания якоря</p>
+<p class="cell cell-b cell-i" style="padding:26px 0">Главный риск</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">предложение получат прежние остатки</p><p class="cell cell-b cell-p" style="padding:26px 0 26px 40px">давний клиент ждёт сетку 12–24 месяца</p>
+</div>
+<div class="foot"><p class="src">Расчёт на клиента с 300 000 ₽ при ключевой 14%. Диапазоны — от клиента со всеми надбавками до клиента без них.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-38"><section id="union" class="alt" data-transition="push">
+<h2 class="a">Вместе этапы замыкают круг: зарплата приходит, раскладывается и остаётся</h2>
+<div class="loop">
+<svg class="dia-svg" style="position:absolute; left:0; top:0" width="1664" height="560" viewBox="0 0 1664 560" aria-label="Круг объединённого продукта: зарплата приходит на счёт, раскладывается по конвертам, платежи уходят сами, свободными деньгами платят, остаток уходит в запас">
+<ellipse cx="832" cy="282" rx="560" ry="214" fill="none" stroke="#2F6B45" stroke-width="3" stroke-dasharray="4 14" stroke-linecap="round"/>
+<circle cx="832" cy="68" r="9" fill="#57D98A"><animateMotion path="M0 0 A560 214 0 1 1 -0.1 0" dur="16s" begin="0s" repeatCount="indefinite"/></circle>
+<circle cx="832" cy="68" r="9" fill="#57D98A"><animateMotion path="M0 0 A560 214 0 1 1 -0.1 0" dur="16s" begin="5.33s" repeatCount="indefinite"/></circle>
+<circle cx="832" cy="68" r="9" fill="#57D98A"><animateMotion path="M0 0 A560 214 0 1 1 -0.1 0" dur="16s" begin="10.66s" repeatCount="indefinite"/></circle>
+</svg>
+<div class="ln ln-s ln1" style="--i:1"><h3>Зарплата на счёт</h3><p class="small">сразу, не на карту</p></div>
+<div class="ln ln2" style="--i:2"><h3>Раскладка</h3><p class="small">по конвертам</p></div>
+<div class="ln ln3" style="--i:3"><h3>Платежи сами</h3><p class="small">кредит, ЖКХ, сад</p></div>
+<div class="ln ln4" style="--i:4"><h3>Оплата со счёта</h3><p class="small">свободными, без процентов</p></div>
+<div class="ln ln5" style="--i:5"><h3>Остаток в запас</h3><p class="small">новые деньги — до 12,5%</p></div>
+<div class="loop-c"><p class="num-l">29–50%</p><p class="small">порог новых денег вместо 50–65%;<br>в первый день — 0%</p></div>
+</div>
+<div class="foot"><p class="src">Объединённый продукт: конверты из этапа 2, оплата со счёта из этапа 1, ставка за поведение на новые деньги в запасе и целях.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-39"><section id="beh-unit" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Порог новых денег начинается с нуля и растёт вместе со стажем</h2>
+<div class="row" style="gap:64px">
+<div class="col between a" style="width:500px; --i:1">
+<div class="col" style="gap:12px">
+<p class="body ink">Порог в первый день</p>
+<p class="num-l">0%</p>
+<p class="small">Перешедший клиент приносит те же 24 000 ₽: якорь на 7,5%, «тратится» без процентов. Дальше порог растёт вместе со списанием якоря.</p>
+</div>
+<p class="body mint fragment visible">Каждая надбавка оплачена поведением: приток приносит новые деньги, стаж и запас делают их стабильными.</p>
+</div>
+<div class="col between grow">
+<div class="rg">
+<div class="rg-h"><p class="label" style="width:380px">Вариант</p><p class="label">Доля новых денег, при которой счёт окупается</p></div>
+<div class="rg-r" style="padding:18px 0; --i:2"><p class="rg-n" style="width:380px">Версия 1: 6% на «тратится»</p><div class="rg-t"><div class="rg-ax"></div><div class="rg-b rg-bl" style="left:360px; width:108px; --i:2"></div><p class="rg-v rg-vl loss" style="left:268px">50%</p><p class="rg-v loss" style="left:480px">65%</p></div></div>
+<div class="rg-r" style="padding:18px 0; --i:3"><p class="rg-n" style="width:380px">Якорь списан полностью, 12–24 месяца</p><div class="rg-t"><div class="rg-ax"></div><div class="rg-b" style="left:209px; width:151px; --i:3"></div><p class="rg-v rg-vl" style="left:117px">29%</p><p class="rg-v" style="left:372px">50%</p></div></div>
+<div class="rg-r" style="padding:18px 0; --i:4"><p class="rg-n" style="width:380px">Якорь списан наполовину, 6–12 месяцев</p><div class="rg-t"><div class="rg-ax"></div><div class="rg-b" style="left:122px; width:115px; --i:4"></div><p class="rg-v rg-vl" style="left:30px">17%</p><p class="rg-v" style="left:249px">33%</p></div></div>
+<div class="rg-r" style="padding:18px 0; --i:5"><p class="rg-n" style="width:380px">Якорь списан на четверть, 3–6 месяцев</p><div class="rg-t"><div class="rg-ax"></div><div class="rg-b rg-bm" style="left:65px; width:79px; --i:5"></div><p class="rg-v rg-vl mint" style="left:-27px">9%</p><p class="rg-v mint" style="left:156px">20%</p></div></div>
+<div class="rg-x rule-t" style="padding-top:0"><p class="rg-xl" style="left:340px">0%</p><p class="rg-xl" style="left:520px">25%</p><p class="rg-xl" style="left:700px">50%</p><p class="rg-xl" style="left:880px">75%</p><p class="rg-xl" style="left:1020px; text-align:right">100%</p></div>
+</div>
+<p class="small rule-t a" style="--i:7">Нижняя граница — перешедшие без надбавок, верхняя — все с тремя надбавками.</p>
+</div>
+</div>
+<div class="foot"><p class="src">Клиент: 240 000 ₽ копится, 60 000 ₽ тратится. С адресным предложением этапа 1 порог после списания якоря — 36–59%.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-40"><section id="pie" class="alt" data-transition="fade">
+<h2 class="a">Пока якорь не списан, выгоду клиента оплачивают новые деньги</h2>
+<div class="gridc a" style="--i:2; grid-template-columns: 520px 1fr 1fr">
+<p class="cell cell-h">На 100 000 ₽ в год</p><p class="cell cell-h cell-p">Получает клиент</p><p class="cell cell-h cell-hm cell-p">Остаётся банку</p>
+<p data-fragment-index="1" class="cell cell-b cell-pad cell-i fragment visible">Прежние деньги в «копится»</p><p data-fragment-index="1" class="cell cell-b cell-pad cell-p fragment visible">7 500 ₽, как сегодня</p><p data-fragment-index="1" class="cell cell-b cell-pad cell-p ink fragment visible">6 500 ₽, как сегодня</p>
+<p data-fragment-index="2" class="cell cell-b cell-pad cell-i fragment visible">Новые деньги на сетке</p><p data-fragment-index="2" class="cell cell-b cell-pad cell-p fragment visible">9 500–12 500 ₽</p><p data-fragment-index="2" class="cell cell-b cell-pad cell-p mint fragment visible">1 500–4 500 ₽, которых не было</p>
+<p data-fragment-index="3" class="cell cell-b cell-pad cell-i fragment visible">Остаток «тратится» от зарплаты, пришедшей на счёт</p><p data-fragment-index="3" class="cell cell-b cell-pad cell-p fragment visible">платежи уходят сами, остаток месяца идёт в запас</p><p data-fragment-index="3" class="cell cell-b cell-pad cell-p mint fragment visible">14 000 ₽ с остатка без процентов</p>
+<p data-fragment-index="4" class="cell cell-b cell-pad cell-i fragment visible">Прежние деньги после списания якоря</p><p data-fragment-index="4" class="cell cell-b cell-pad cell-p fragment visible">9 500–12 500 ₽ вместо 7 500 ₽</p><p data-fragment-index="4" class="cell cell-b cell-pad cell-p ink fragment visible">1 500–4 500 ₽ вместо 6 500 ₽: цена удержания за 12–24 месяца стажа</p>
+</div>
+<div class="foot"><p class="src">Размещение по ключевой 14%. В версии 1 клиент с 300 000 ₽ получал до 15 600 ₽ в год сверх сегодняшнего за счёт маржи банка.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-41"><section id="sens" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt="">
+<h2 class="a">Сетка привязана к ключевой: при её снижении падает только доход с остатка без процентов</h2>
+<div class="row" style="gap:64px">
+<div class="col between a" style="width:480px; --i:1">
+<div class="col" style="gap:12px">
+<p class="body ink">Спред на «копится» при любой ключевой</p>
+<p class="num-l" style="white-space:nowrap; font-size:88px">1,5–4,5 п.п.</p>
+<p class="small">Сетка идёт за ключевой. Остаток без процентов приносит 14 ₽ на 100 ₽ при ключевой 14% и 10 ₽ при 10%.</p>
+</div>
+<p class="body mint fragment visible">С фиксированными 6% на «тратится» порог при ключевой 10% вырос бы до 58–72%.</p>
+</div>
+<div class="col between grow">
+<div class="grid4 a" style="--i:2; grid-template-columns: 1fr 260px 260px 260px">
+<p class="cell cell-h">Маржа на клиента в год и порог</p><p class="cell cell-h cell-r">Ключевая 14%</p><p class="cell cell-h cell-r">12%</p><p class="cell cell-h cell-r">10%</p>
+<p class="cell cell-i">«Спящий» клиент сегодня</p><p class="cell cell-v">24 000 ₽</p><p class="cell cell-v">22 800 ₽</p><p class="cell cell-v">21 600 ₽</p>
+<p class="cell cell-i">Версия 2, якорь списан</p><p class="cell cell-v">12 000–19 200 ₽</p><p class="cell cell-v">10 800–18 000 ₽</p><p class="cell cell-v">9 600–16 800 ₽</p>
+<p class="cell cell-i">Порог, версия 2</p><p class="cell cell-v mint">29–50%</p><p class="cell cell-v mint">31–53%</p><p class="cell cell-v mint">33–56%</p>
+<p class="cell cell-i">Порог, версия 1</p><p class="cell cell-v loss">50–65%</p><p class="cell cell-v loss">54–68%</p><p class="cell cell-v loss">58–72%</p>
+</div>
+<p class="small rule-t a" style="--i:6">Спред на «копится» постоянный: база — ключевая минус 6,5 п.п., сетка — от минус 4,5 до минус 1,5 п.п. Меняется только доход с остатка без процентов.</p>
+</div>
+</div>
+<div class="foot"><p class="src">Клиент: 240 000 ₽ копится, 60 000 ₽ тратится. Версия 1 — сетка на все деньги и фиксированные 6% на «тратится».</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-42"><section id="u-video" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl" style="width:520px">
+<div class="col" style="gap:40px">
+<h2 class="a">Месяц Анны: от первой цели до итогов декабря</h2>
+<p class="body a" style="--i:2">Запись кликабельного прототипа, 48 секунд. Клиент проживает месяц по событиям.</p>
+</div>
+<p class="body mint a" style="--i:4">Каждое событие меняет счёт на глазах.</p>
+</div>
+<video class="vid" src="assets/u1-video.mp4" poster="assets/u1-poster.webp" autoplay loop muted playsinline preload="metadata" style="width:411px; height:792px" aria-label="Запись прототипа: цель «Отпуск», раскладка зарплаты, надбавка за приток, покупка, нехватка денег, автоплатежи и итоги месяца"></video>
+<div class="steps">
+<div class="srcitem a" style="--i:1"><p class="srcnum">1</p><div class="col" style="gap:4px"><h3>Первая цель</h3><p class="small">Конверт «Отпуск» появляется на счёте.</p></div></div>
+<div class="srcitem a" style="--i:2"><p class="srcnum">2</p><div class="col" style="gap:4px"><h3>Зарплата</h3><p class="small">Первая раскладка с подтверждением. Надбавка за приток: 10,5%.</p></div></div>
+<div class="srcitem a" style="--i:3"><p class="srcnum">3</p><div class="col" style="gap:4px"><h3>Покупка</h3><p class="small">SberPay из свободных, накопления целы.</p></div></div>
+<div class="srcitem a" style="--i:4"><p class="srcnum">4</p><div class="col" style="gap:4px"><h3>Не хватает</h3><p class="small">Четыре варианта без предвыбора. Анна доплачивает с карты.</p></div></div>
+<div class="srcitem a" style="--i:5"><p class="srcnum">5</p><div class="col" style="gap:4px"><h3>Аванс, платежи и итоги</h3><p class="small">Платежи уходят сами, 1/12 прежних денег переходит на сетку.</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Запись кликабельного прототипа версии 2, идёт по кругу. <a href="../prototype/unified/" style="color:#57D98A">Открыть кликабельный прототип</a></p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-43"><section id="u-j1" data-transition="push">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Счёт растёт вместе с клиентом</h2>
+<p class="body a" style="--i:2">Главное число — месяцы жизни. Ставка стоит рядом: на новые деньги и в среднем на «копится».</p>
+</div>
+<p class="body mint a" style="--i:4">Первую раскладку Анна подтверждает сама, дальше включает автоматическую.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">1 декабря</p><img class="ph" src="assets/u-home1.webp" alt="Главный экран 1 декабря: запаса хватит на 1,6 месяца жизни, на счёте 192 400 ₽, ставка на новые деньги 9,5%"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">10 декабря: первая раскладка</p><img class="zm" src="assets/z-u-salary-ask.webp" alt="Переключатель «Дальше раскладывать без подтверждения» выключен" style="width:736px; height:212px; border-radius:47px"></div><div class="zcol" style="--i:2"><p class="cap">10 декабря: надбавка за приток</p><img class="zm" src="assets/z-u-home2.webp" alt="Кольцо ставки 10,5% на новые деньги; в среднем на «копится» 7,8%, прежние 184 000 ₽ и новые 19 600 ₽" style="width:700px; height:371px; border-radius:45px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты кликабельного прототипа. Плашка вверху экрана ведёт рассказ и показывает следующее событие.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-44"><section id="u-j3" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Четыре варианта и право на ошибку</h2>
+<p class="body a" style="--i:2">Четыре варианта, ни один не выбран заранее. У каждого своё последствие: цель сдвинется, запас уменьшится, рассрочка попадёт в кредитную историю.</p>
+</div>
+<p class="body mint a" style="--i:4">Снятие откатывает стаж на одну ступень. Если вернуть сумму за 30 дней, стаж сохранится.</p>
+</div>
+<div class="zcol" style="--i:0"><p class="cap">14 декабря: в свободных не хватает</p><img class="zm" src="assets/z-u-short.webp" alt="Шторка «В свободных не хватает 19 570 ₽»: доплатить с карты, взять из «Отпуска», взять из запаса или оплатить частями" style="width:510px; height:745px; border-radius:44px"></div>
+<div class="zooms"><div class="zcol" style="--i:1"><p class="cap">Пример из апреля: взяли из запаса</p><img class="zm" src="assets/z-u-lost-b.webp" alt="Ставка 10,5% вместо 11,5%: минус одна ступень, стаж 2 из 3 месяцев" style="width:586px; height:234px; border-radius:41px"></div><div class="zcol" style="--i:2"><p class="cap">Как вернуть надбавку</p><img class="zm" src="assets/z-u-lost.webp" alt="Вернуть 19 570 ₽ до 14 мая или месяц без снятия" style="width:586px; height:258px; border-radius:41px"></div></div>
+</div>
+<div class="foot"><p class="src">Крупные фрагменты прототипа. Со счёта ничего не списывается: клиент недополучает около 122 ₽ процентов в месяц.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-45"><section id="u-move" data-transition="push">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Переезд: прежние деньги ничего не теряют</h2>
+<p class="body a" style="--i:2">Нынешний клиент видит до подключения, что станет с его счётом: прежние деньги остаются на 7,5%, новые получают сетку.</p>
+</div>
+<p class="body mint a" style="--i:4">Каждый месяц без снятия 1/12 прежних денег переходит на новую ставку.</p>
+</div>
+<div class="phcol" style="--i:0"><p class="cap">Что станет с вашим счётом</p><img class="ph" src="assets/u-move.webp" alt="Экран переезда: прежние деньги под 7,5%, новые под 9,5–12,5%, график перехода прежних денег на новую ставку за 12 месяцев"></div><div class="zooms"><div class="zcol" style="--i:1"><p class="cap">31 декабря: итоги месяца</p><img class="zm" src="assets/z-u-month.webp" alt="Счёт заработал 1 287 ₽: прежние под 7,5% дали 1 153 ₽, новые под 10,5% — 134 ₽" style="width:640px; height:331px; border-radius:44px"></div><div class="zcol" style="--i:2"><p class="cap">Переход на новую ставку</p><img class="zm" src="assets/z-u-month-b.webp" alt="15 333 ₽ переходят на новую ставку, под 7,5% остаётся 168 667 ₽" style="width:640px; height:190px; border-radius:40px"></div></div>
+</div>
+<div class="foot"><p class="src">Экран и крупные фрагменты кликабельного прототипа. Без зарплаты на счёте переход занимает два года.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-46"><section id="u-j2" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Ставка растёт, когда складываются привычки</h2>
+<p class="body a" style="--i:2">Стаж считается по месяцам без снятия. Через три месяца приходит вторая надбавка; третья — когда запаса хватает на три месяца.</p>
+</div>
+<p class="body mint a" style="--i:4">К июню средняя ставка на «копится» выросла с 7,5% до 11,5%.</p>
+</div>
+<div class="zrow"><div class="zcol" style="--i:0"><p class="cap">10 марта: надбавка за стаж</p><img class="zm" src="assets/z-u-march.webp" alt="Экран марта: кольцо ставки 11,5% на новые деньги, три месяца без снятия" style="width:548px; height:452px; border-radius:35px"></div><div class="zcol" style="--i:1"><p class="cap">1 июня: все три надбавки</p><img class="zm" src="assets/z-u-june.webp" alt="Экран июня: кольцо ставки 12,5%, отпуск готов, запаса хватает на три месяца" style="width:548px; height:521px; border-radius:35px"></div></div>
+</div>
+<div class="foot"><p class="src">Крупные фрагменты кликабельного прототипа для iPhone 18 Pro Max. Суммы — пример.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-47"><section id="u-ins" data-transition="push">
+<div class="jr">
+<div class="jl" style="width:520px">
+<div class="col" style="gap:40px">
+<h2 class="a">Аналитика показывает, что даёт каждая привычка</h2>
+<p class="body a" style="--i:2">Отдельный экран. Все цифры считаются из состояния счёта.</p>
+</div>
+<p class="body mint a" style="--i:4">Каждый блок подсказывает следующий шаг.</p>
+</div>
+<video class="vid" src="assets/u2-video.mp4" poster="assets/u2-poster.webp" autoplay loop muted playsinline preload="metadata" style="width:411px; height:792px" aria-label="Запись прототипа: вехи марта и июня, затем экран аналитики с запас, путём ставки, распределением денег, целью и доходом счёта"></video>
+<div class="steps">
+<div class="srcitem a" style="--i:1"><p class="srcnum">1</p><div class="col" style="gap:4px"><h3>Месяцы жизни</h3><p class="small">Запаса хватит на 3,9 месяца. Следующая ступень — шесть.</p></div></div>
+<div class="srcitem a" style="--i:2"><p class="srcnum">2</p><div class="col" style="gap:4px"><h3>Путь ставки</h3><p class="small">Полученные и ожидаемые надбавки.</p></div></div>
+<div class="srcitem a" style="--i:3"><p class="srcnum">3</p><div class="col" style="gap:4px"><h3>Куда распределены деньги</h3><p class="small">Доля того, что копится, и суммы по конвертам.</p></div></div>
+<div class="srcitem a" style="--i:4"><p class="srcnum">4</p><div class="col" style="gap:4px"><h3>Цель</h3><p class="small">Прогресс и способ прийти раньше.</p></div></div>
+<div class="srcitem a" style="--i:5"><p class="srcnum">5</p><div class="col" style="gap:4px"><h3>Доход счёта</h3><p class="small">Прежние деньги, сетка и надбавки отдельно, в рублях в месяц.</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Запись кликабельного прототипа версии 2: март, июнь и экран аналитики. <a href="../prototype/unified/" style="color:#57D98A">Открыть кликабельный прототип</a></p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-48"><section id="u-new" class="alt" data-transition="fade">
+<div class="jr">
+<div class="jl">
+<div class="col" style="gap:40px">
+<h2 class="a">Вывод, срочный конверт, прибавка</h2>
+<p class="body a" style="--i:2">Вывести деньги так же просто, как внести. Цель с датой можно сделать срочной. Будущую прибавку — заранее направить в запас.</p>
+</div>
+<p class="body mint a" style="--i:4">Последствия видны до действия: запас в месяцах, проценты, стаж.</p>
+</div>
+<div class="phones"><div class="phcol" style="--i:0"><p class="cap">Перевод в другой банк</p><img class="ph" src="assets/u-out.webp" alt="Перевод 100 000 ₽ в другой банк: 43 360 ₽ из свободных и 56 640 ₽ из запаса, комиссия 0, запас снизится с 1,8 до 1,1 месяца"></div><div class="phcol" style="--i:1"><p class="cap">Срочный конверт</p><img class="ph" src="assets/u-term.webp" alt="Срочный конверт «Отпуск» до 1 июня: ставка выше на 1 п.п., пополнять и забрать раньше можно"></div><div class="phcol" style="--i:2"><p class="cap">С прибавки — в запас</p><img class="ph" src="assets/u-raise.webp" alt="Половина будущей прибавки и платёж закрытого кредита идут в запас: плюс 5 000 ₽ каждый месяц"></div></div>
+</div>
+<div class="foot"><p class="src">Экраны только показывают условия; состояние счёта не меняется. Срочный конверт требует юридической проработки.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-49"><section id="u-read" data-transition="push">
+<div class="jr" style="gap:48px">
+<div class="jl" style="width:400px">
+<div class="col" style="gap:40px">
+<h2 class="a">Экраны стало проще читать</h2>
+<p class="body a" style="--i:2">Правки по ревью интерфейса внесены во все три прототипа.</p>
+</div>
+<p class="body mint a" style="--i:4">Проценты за день показаны с копейками и датой выплаты.</p>
+</div>
+<div class="phones" style="gap:32px"><div class="phcol" style="--i:0"><p class="cap">Светлая тема</p><img class="ph" src="assets/u-home-light.webp" alt="Главный экран в светлой теме: 1,7 месяца жизни, на счёте 264 400 ₽"></div><div class="phcol" style="--i:1"><p class="cap">Тёмная тема</p><img class="ph" src="assets/u-home2.webp" alt="Тот же экран в тёмной теме"></div></div>
+<div class="steps">
+<div class="srcitem a" style="--i:1"><p class="srcnum">1</p><div class="col" style="gap:4px"><h3>Главное число — месяцы жизни</h3><p class="small">Остаток в рублях и ставка стоят вторым планом.</p></div></div>
+<div class="srcitem a" style="--i:2"><p class="srcnum">2</p><div class="col" style="gap:4px"><h3>Светлая и тёмная тема</h3><p class="small">Одни переменные цвета на все экраны.</p></div></div>
+<div class="srcitem a" style="--i:3"><p class="srcnum">3</p><div class="col" style="gap:4px"><h3>Текст от 13 px</h3><p class="small">Контраст подписей не ниже 4,5:1.</p></div></div>
+<div class="srcitem a" style="--i:4"><p class="srcnum">4</p><div class="col" style="gap:4px"><h3>Одна нижняя панель</h3><p class="small">Счёт, аналитика, история — во всех прототипах.</p></div></div>
+<div class="srcitem a" style="--i:5"><p class="srcnum">5</p><div class="col" style="gap:4px"><h3>Одни слова</h3><p class="small">Конверт, свободные, запас, месяцы жизни.</p></div></div>
+</div>
+</div>
+<div class="foot"><p class="src">Светлая тема показана на главном экране объединённого прототипа.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-50"><section id="inflow" class="alt" data-transition="fade">
+<h2 class="a">Три механики: новые деньги и&nbsp;защита запаса</h2>
+<div class="row" style="gap:40px">
+<div class="panel a" style="--i:1; padding:40px">
+<p class="eyebrow">Новые деньги</p>
+<h3 class="h3l tri-h">Ручеёк из&nbsp;других банков</h3>
+<p class="body">Клиент задаёт сумму и&nbsp;дату, счёт сам подтягивает деньги через СБП. Они сразу идут в&nbsp;запас.</p>
+<div class="grow"></div>
+<p class="small rule-t">Одно согласие в&nbsp;приложении банка-отправителя. Бесплатно до&nbsp;30&nbsp;млн&nbsp;₽ в&nbsp;месяц.</p>
+</div>
+<div class="panel a" style="--i:2; padding:40px">
+<p class="eyebrow">Новые деньги</p>
+<h3 class="h3l tri-h">Ссылка «скинуться»</h3>
+<p class="body">Пополнить конверт может человек из&nbsp;любого банка. Он видит имя получателя, цель и&nbsp;кнопку «открыть такой&nbsp;же счёт».</p>
+<div class="grow"></div>
+<p class="small rule-t">На&nbsp;переводы по&nbsp;ссылке действует месячный лимит.</p>
+</div>
+<div class="panel a" style="--i:3; padding:40px">
+<p class="eyebrow">Защита</p>
+<h3 class="h3l tri-h">Пауза перед снятием</h3>
+<p class="body">Клиент включает её сам. Крупный перевод из&nbsp;запаса другому человеку уходит через сутки, покупки не&nbsp;задерживаются.</p>
+<div class="grow"></div>
+<p class="small rule-t">Для пожилых клиентов&nbsp;— подтверждение близким, сервис «второй руки» (41-ФЗ).</p>
+</div>
+</div>
+<div class="foot"><p class="src">Округление покупок оставлено как привычка: оно переносит деньги внутри счёта и&nbsp;новых не&nbsp;приносит.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-51"><section id="more" data-transition="push">
+<img class="bg" src="assets/bg-soft.jpg" alt=""><h2 class="a">Четыре механики роста подушки, три из них — без затрат на ставку</h2>
+<div class="quad">
+<div class="q a" style="--i:1"><p class="q-num">01</p><h3 class="h3l">Откладывать с прибавки</h3><p class="small">Клиент соглашается заранее: половина будущего роста зарплаты идёт в запас. Платёж закрытого кредита переходит туда же.</p><div class="tags"><p class="tag tag-2">расходы не падают, подушка растёт</p></div></div>
+<div class="q q-r a" style="--i:2"><p class="q-num">02</p><h3 class="h3l">Раскладка у источника</h3><p class="small">Правило включается в зарплатном проекте и при назначении пенсии. Часть дохода попадает в «копится» раньше, чем на карту.</p><div class="tags"><p class="tag tag-2">канал, которого нет у новых игроков</p></div></div>
+<div class="q q-b a" style="--i:3"><p class="q-num">03</p><h3 class="h3l">Срочный конверт</h3><p class="small">Цель с датой оформляется как вклад внутри счёта. Клиенту — ставка выше, банку — срочные деньги.</p><div class="tags"><p class="tag tag-2">досрочно — по ставке «копится»</p></div></div>
+<div class="q q-r q-b a" style="--i:4"><p class="q-num">04</p><h3 class="h3l">Сверх подушки</h3><p class="small">Больше шести месяцев расходов: счёт предлагает вклад или фонд денежного рынка Сбера.</p><div class="tags"><p class="tag tag-2">комиссия вместо процентного расхода</p></div></div>
+</div>
+<div class="foot"><p class="src">Механики — гипотезы для пилота. Срочный конверт и фонд требуют юридической проработки.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-52"><section id="pilot" class="alt" data-transition="push">
+<h2 class="a">Пилот: шесть месяцев, контрольная группа и условия остановки</h2>
+<div class="quad">
+<div class="q a" style="--i:1"><p class="q-num">01</p><h3 class="h3l">Кого берём</h3><p class="small">Случайная выборка действующих клиентов и клиентов с зарплатой в другом банке. Контрольная группа предложение не получает.</p></div>
+<div class="q q-r a" style="--i:2"><p class="q-num">02</p><h3 class="h3l">Что измеряем</h3><p class="small">Чистый приток совокупных средств против контроля, подушку в месяцах, долю «тратится» и маржу на клиента.</p></div>
+<div class="q q-b a" style="--i:3"><p class="q-num">03</p><h3 class="h3l">Когда останавливаем</h3><p class="small">Чистый приток не отличается от контроля. Маржа на перешедшего клиента с учётом новых денег ниже, чем в контрольной группе. Растут жалобы на якорь.</p></div>
+<div class="q q-r q-b a" style="--i:4"><p class="q-num">04</p><h3 class="h3l">Что делаем до пилота</h3><p class="small">Конджойнт «ставка против функций»: нужна ли сетка от 9,5% или хватит 8,5%. Тест понимания двух ставок на прототипе.</p></div>
+</div>
+<div class="foot"><p class="src">Срок, размер выборки и пороги остановки — уточнить с аналитиками портфеля.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-53"><section id="u-risks" class="alt" data-transition="push">
+<h2 class="a">Риски объединённого продукта и чем их закрыть</h2>
+<div class="risks">
+<p class="label risk risk-h">Риск</p><p class="label risk-do risk-h">Чем закрыть</p>
+<div class="risk a" style="--i:1"><div class="dot"></div><h3>Давний клиент получает ставку ниже, чем новый</h3></div><div class="risk-do a" style="--i:1"><p class="body">Якорь списывается за стаж: 12 месяцев с зарплатой на счёте, 24 — без неё. График виден на экране переезда.</p></div>
+<div class="risk a" style="--i:2"><div class="dot"></div><h3>Реклама «до 12,5%» при меньшей ставке в первый день</h3></div><div class="risk-do a" style="--i:2"><p class="body">В предложении — ставка сегодня и путь до максимума, на главном экране — средняя на «копится». Сверить с требованиями Банка России к раскрытию.</p></div>
+<div class="risk a" style="--i:3"><div class="dot"></div><h3>Клиент выводит деньги и возвращает их как новые</h3></div><div class="risk-do a" style="--i:3"><p class="body">Прирост считается за вычетом собственных переводов в другие банки за 90 дней.</p></div>
+<div class="risk a" style="--i:4"><div class="dot"></div><h3>План выполняют переводом с карт на счёт</h3></div><div class="risk-do a" style="--i:4"><p class="body">Метрика трайба — чистый приток совокупных средств клиента, а не остаток на счёте.</p></div>
+</div>
+<div class="foot"><p class="src">Окно в 90 дней и сроки списания якоря — допущения для обсуждения.</p><div class="pg"></div></div>
+</section>
+</div>
+<div class="frame" id="slide-54"><section id="next" class="alt" data-transition="fade">
+<h2 class="a">Что нужно решить</h2>
+<div class="asks">
+<div class="ask a" style="--i:1"><p class="ask-n">1</p><div class="col" style="gap:8px"><h3 class="h3l">Утвердить правила ставки</h3><p class="small">Без процентов на «тратится» и адресные 6% новым клиентам, якорь на прежние деньги, сетка от ключевой минус 4,5 до минус 1,5 п.п., потолок в шесть месяцев расходов.</p></div></div>
+<div class="ask a" style="--i:2"><p class="ask-n">2</p><div class="col" style="gap:8px"><h3 class="h3l">Запустить пилот объединённого продукта</h3><p class="small">Шесть месяцев, контрольная группа, расчёт на данных портфеля. Кликабельный прототип готов.</p></div></div>
+<div class="ask a" style="--i:3"><p class="ask-n">3</p><div class="col" style="gap:8px"><h3 class="h3l">Сверить юридическую конструкцию</h3><p class="small">Запас без блокировки денег, права семьи на конверт, автоплатежи, рассрочка на экране нехватки, раскрытие ставок.</p></div></div>
+<div class="ask a" style="--i:4"><p class="ask-n">4</p><div class="col" style="gap:8px"><h3 class="h3l">Сменить метрику трайба</h3><p class="small">Чистый приток совокупных средств и подушка в месяцах вместо остатка на накопительном счёте.</p></div></div>
+</div>
+<div class="foot"><p class="src">Рабочая версия 2. Экономика — на рыночных допущениях; расчёт на данных портфеля — первый шаг пилота.</p><div class="pg"></div></div>
+</section>
+</div>
+<script>
+const fit = () => { const f = document.querySelector('.frame'); if (f) document.documentElement.style.setProperty('--k', f.clientWidth / 1920); };
+fit(); addEventListener('resize', fit);
+</script>
+</body>
+</html>

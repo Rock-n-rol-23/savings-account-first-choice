@@ -1,0 +1,21 @@
+# Накопительный счёт первого выбора — версия 2
+
+> Концепция перезапуска накопительного счёта банка: дека из 54 слайдов и два кликабельных прототипа мобильного приложения. Рабочая версия на рыночных допущениях. Язык — русский.
+
+## Главное
+
+- [Текст всех слайдов](https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/deck.md): 54 слайда по порядку, с описаниями экранов и сносками
+- [Описание, правила продукта и ключевые цифры](https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/README.md)
+
+## Материалы
+
+- [Дека одной страницей](https://rock-n-rol-23.github.io/savings-account-first-choice/deck/)
+- [Снимки слайдов](https://github.com/Rock-n-rol-23/savings-account-first-choice/tree/main/slides): файлы NN-id.jpg в порядке показа
+- [Объединённый прототип](https://rock-n-rol-23.github.io/savings-account-first-choice/prototype/unified/)
+- [Прототип этапов 1 и 2](https://rock-n-rol-23.github.io/savings-account-first-choice/prototype/stages/)
+
+## Исходники
+
+- [Логика объединённого прототипа и расчёт ставок](https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/src/prototype/uni.js)
+- [Экраны прототипов](https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/src/prototype/screens.html)
+- [Дизайн-система](https://raw.githubusercontent.com/Rock-n-rol-23/savings-account-first-choice/main/src/design.md)

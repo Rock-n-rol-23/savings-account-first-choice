@@ -1,0 +1,332 @@
+<!-- Экраны объединённого продукта: один счёт, который копит, платит и раскладывает.
+     Остальные экраны (оплата, раскладка зарплаты, общий конверт, прогноз) берутся из screens.html.
+     Клиент — действующий: прежние деньги остаются под 7,5%, новые идут по сетке 9,5–12,5%. -->
+
+<template data-id="u-start" data-cap="День первый">
+<div class="view">
+  <div class="glow"></div>
+  <div class="body" style="padding-top:74px; gap:20px">
+    <div class="lbl" style="padding:0 4px">1 декабря · день первый</div>
+    <div class="card hi" style="padding:20px; gap:14px">
+      <div class="row" style="gap:18px">
+        <div class="ring" data-size="144" data-ring="0,0,0" data-rate="9,5%" data-label="на новые"></div>
+        <div class="col sp" style="gap:11px">
+          <div class="row gap10"><div class="radio" style="width:22px; height:22px"></div><div class="col"><div class="tb" style="font-size:16px">+1 за приток</div><div class="ts" style="font-size:13px">деньги приходят</div></div></div>
+          <div class="row gap10"><div class="radio" style="width:22px; height:22px"></div><div class="col"><div class="tb" style="font-size:16px">+1 за стаж</div><div class="ts" style="font-size:13px">три месяца без снятия</div></div></div>
+          <div class="row gap10"><div class="radio" style="width:22px; height:22px"></div><div class="col"><div class="tb" style="font-size:16px">+1 за запас</div><div class="ts" style="font-size:13px">хватит на три месяца</div></div></div>
+        </div>
+      </div>
+      <div class="sep" style="background:var(--hi-line); opacity:.5"></div>
+      <div class="row"><div class="col sp" style="gap:0"><span class="tb">Прежние деньги</span><span class="ts" style="font-size:13px">то, что уже лежит у вас в Сбере</span></div><span class="num" style="font-size:20px; font-weight:600; letter-spacing:-.6px">7,5%, как сейчас</span></div>
+    </div>
+    <div class="h1" style="font-size:30px">Один счёт: копит, платит и&nbsp;раскладывает</div>
+    <div class="col" style="gap:16px">
+      <div class="row"><div class="av s g"><i data-ic="shield" data-s="20" class="mint"></i></div><div class="t ink">Новые деньги копятся под 9,5%, за&nbsp;три привычки — до&nbsp;12,5%</div></div>
+      <div class="row"><div class="av s g"><i data-ic="repeat" data-s="20" class="mint"></i></div><div class="t ink">Прежние каждый месяц переходят на&nbsp;новую ставку</div></div>
+      <div class="row"><div class="av s g"><i data-ic="cal" data-s="20" class="mint"></i></div><div class="t ink">Платежи уходят сами, остальным платите через SberPay</div></div>
+    </div>
+  </div>
+  <div class="foot"><div class="cta">Открыть счёт</div><div class="ts mint" data-a="move" style="text-align:center; font-weight:600; padding:4px 0">Что станет с&nbsp;моим нынешним счётом</div></div>
+</div>
+</template>
+
+<template data-id="u-setup" data-cap="Настройка">
+<div class="view">
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Настроим за минуту</div><div style="width:40px"></div></div>
+  <div class="body">
+    <div class="card"><div class="row"><div class="av g"><i data-ic="wallet" class="mint"></i></div><div class="col sp"><div class="tb">Зарплата приходит сюда</div><div class="ts">72&nbsp;000&nbsp;₽ 10-го и&nbsp;аванс 48&nbsp;000&nbsp;₽ 25-го</div></div><div class="tog" data-a="salary"></div></div></div>
+    <div class="card hi" data-a="slider" style="gap:14px; padding:20px">
+      <div class="row"><div class="lbl hl">Запас · копится под ставку</div><span class="sp"></span><div class="pill solid" data-a="life">1,6 месяца жизни</div></div>
+      <div class="big" data-a="buf" style="font-size:44px">138&nbsp;000&nbsp;₽</div>
+      <div class="slider"><div class="trk"></div><div class="fil" style="width:72%"></div><div class="knb" style="left:72%"></div></div>
+      <div class="row"><div class="lbl">Свободные: <span data-a="free">54&nbsp;400&nbsp;₽</span></div><span class="sp"></span><div class="lbl">на счёте 192&nbsp;400&nbsp;₽</div></div>
+    </div>
+    <div class="card" style="gap:13px">
+      <div class="lbl">Нашли регулярные платежи — будут уходить сами</div>
+      <div class="row"><div class="av s c"><i data-ic="percent" data-s="18" class="coral"></i></div><div class="col sp"><div class="tb">Кредит</div><div class="ts">23&nbsp;400&nbsp;₽ · 15-го</div></div><div class="tog"></div></div>
+      <div class="row"><div class="av s a"><i data-ic="home" data-s="18" class="amb"></i></div><div class="col sp"><div class="tb">ЖКХ</div><div class="ts">9&nbsp;500&nbsp;₽ · до 25-го</div></div><div class="tog"></div></div>
+      <div class="row"><div class="av s v"><i data-ic="kid" data-s="18" style="color:var(--violet)"></i></div><div class="col sp"><div class="tb">Детский сад</div><div class="ts">12&nbsp;000&nbsp;₽ · 5-го</div></div><div class="tog"></div></div>
+    </div>
+  </div>
+  <div class="foot"><div class="cta">Готово</div><div class="ts" style="text-align:center">Деньги доступны всегда: запас — это не&nbsp;блокировка.</div></div>
+</div>
+</template>
+
+<template data-id="u-home" data-cap="Счёт">
+<div class="view">
+  <div class="glow" style="opacity:.5"></div>
+  <div class="body scroll compact" style="padding-top:38px; gap:8px">
+    <div class="col gap6" style="padding:0 4px">
+      <div class="lbl">Запаса хватит на</div>
+      <div class="hero"><div class="big" data-a="life">1,6</div><div class="u" data-a="lifeU">месяца жизни</div></div>
+      <div class="sub2" style="margin-top:2px">На счёте <b data-a="total">0&nbsp;₽</b></div>
+      <div class="row" style="margin-top:4px"><div class="pill"><i data-ic="bolt" data-s="14"></i><span>сегодня +<span class="num" data-a="tick">0,00</span>&nbsp;₽ · выплатим завтра</span></div></div>
+    </div>
+    <div class="card hi" data-a="ratecard" style="padding:12px 16px; gap:9px">
+      <div class="row" style="gap:14px">
+        <div class="ring" data-size="98" data-ring="0,0,0" data-rate="9,5%" data-label="на новые"></div>
+        <div class="col sp" style="gap:6px" data-a="habits"></div>
+      </div>
+      <div class="col" style="gap:3px; padding-top:9px; border-top:1px solid var(--hi-line)">
+        <div class="ts ink" data-a="avg">В среднем на «копится» сегодня 7,5% → до 12,5%</div>
+        <div class="lbl" data-a="split">прежние 138 000 ₽ · 7,5%</div>
+      </div>
+    </div>
+    <div class="row" style="justify-content:space-between; padding:0 6px">
+      <div class="col" data-a="topup" style="align-items:center; gap:4px; width:78px"><div class="ic-btn" style="width:44px; height:44px; border-radius:22px"><i data-ic="down"></i></div><div class="ts soft">Пополнить</div></div><div class="col" data-a="pay" style="align-items:center; gap:4px; width:78px"><div class="ic-btn" style="width:44px; height:44px; border-radius:22px; background:var(--mint); color:var(--on-mint)"><i data-ic="pay"></i></div><div class="ts ink">Оплатить</div></div><div class="col" data-a="out" style="align-items:center; gap:4px; width:78px"><div class="ic-btn" style="width:44px; height:44px; border-radius:22px"><i data-ic="up"></i></div><div class="ts soft">Вывести</div></div><div class="col" data-a="goal" style="align-items:center; gap:4px; width:78px"><div class="ic-btn" style="width:44px; height:44px; border-radius:22px"><i data-ic="plus"></i></div><div class="ts soft">Цель</div></div>
+    </div>
+    <div class="col gap6">
+      <div class="row" style="padding:0 6px"><div class="lbl sp" data-a="saveLbl">Копится · до 12,5%</div><div class="lbl ink" data-a="saveSum" style="font-weight:600"></div></div>
+      <div class="card rows" data-a="save"></div>
+    </div>
+    <div class="col gap6">
+      <div class="row" style="padding:0 6px"><div class="lbl sp">Тратится · без процентов</div><div class="lbl ink" data-a="spendSum" style="font-weight:600"></div></div>
+      <div class="card rows" data-a="spend"></div>
+    </div>
+  </div>
+  <div class="tabbar"><div class="tab on" data-tab="acc"><i data-ic="shield" data-s="22"></i>Счёт</div><div class="tab" data-tab="ins" data-a="tabIns"><i data-ic="chart" data-s="22"></i>Аналитика</div><div class="tab" data-tab="his"><i data-ic="clock" data-s="22"></i>История</div></div>
+</div>
+</template>
+
+<template data-id="u-short" data-cap="Не хватает">
+<div class="view">
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Оформление заказа</div><div style="width:40px"></div></div>
+  <div class="body">
+    <div class="card"><div class="row"><div class="av" style="width:64px; height:64px; border-radius:18px"><i data-ic="bag" data-s="28" class="soft"></i></div><div class="col sp"><div class="tb">Смартфон</div><div class="ts">Магазин электроники · 1 шт.</div></div></div><div class="sep"></div><div class="row"><div class="t">Итого</div><span class="sp"></span><div class="sm">31&nbsp;990&nbsp;₽</div></div></div>
+  </div>
+  <div class="scrim"></div>
+  <div class="sheet" style="gap:10px">
+    <div class="grab"></div>
+    <div class="h2" data-a="need">В свободных не хватает 19&nbsp;570&nbsp;₽</div>
+    <div class="t" data-a="needSub" style="margin-top:-2px">Покупка — 31&nbsp;990&nbsp;₽, в свободных — 12&nbsp;420&nbsp;₽.</div>
+    <div class="opt" data-opt="card"><div class="radio"></div><div class="col sp"><div class="tb">Доплатить с&nbsp;карты •• 4417</div><div class="ts" data-a="cardSub">19&nbsp;570&nbsp;₽ с&nbsp;карты. Цели и&nbsp;стаж целы</div></div></div>
+    <div class="opt" data-opt="vac"><div class="radio"></div><div class="col sp"><div class="tb">Взять из «Отпуска»</div><div class="ts" data-a="vacSub">цель сдвинется: к середине июля</div><div class="tag a">стаж: минус одна ступень</div></div></div>
+    <div class="opt" data-opt="buf"><div class="radio"></div><div class="col sp"><div class="tb">Взять из запаса</div><div class="ts" data-a="bufSub">запас: 1,7 → 1,5 месяца жизни</div><div class="tag a">стаж: минус одна ступень</div></div></div>
+    <div class="opt" data-opt="parts"><div class="radio"></div><div class="col sp"><div class="tb">Оплатить частями</div><div class="ts">6 платежей по 5&nbsp;332&nbsp;₽. Цели и&nbsp;стаж целы</div><div class="tag">попадёт в&nbsp;кредитную историю</div></div></div>
+    <div class="info"><i data-ic="info" data-s="18" class="soft" style="margin-top:1px"></i><div class="ts" data-a="cost">Из накоплений ничего не&nbsp;спишем: недополучите около 122&nbsp;₽ процентов в&nbsp;месяц. Вернёте за&nbsp;30&nbsp;дней — стаж сохранится. Деньги под кредит, ЖКХ и&nbsp;сад не&nbsp;предлагаем.</div></div>
+    <div class="cta wait" data-a="go">Выберите вариант</div>
+  </div>
+</div>
+</template>
+
+<template data-id="u-month" data-cap="Итоги месяца">
+<div class="view">
+  <div class="glow" style="opacity:.6"></div>
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Итоги декабря</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:13px">
+    <div class="card hi" style="padding:20px; gap:12px">
+      <div class="lbl hl">Счёт заработал</div>
+      <div class="big mint" data-a="earn">+0&nbsp;₽</div>
+      <div class="row" style="gap:22px"><div class="col"><div class="ts">Прежние · 7,5%</div><div class="sm" data-a="earnOld"></div></div><div class="col"><div class="ts" data-a="earnNewL">Новые · 10,5%</div><div class="sm" data-a="earnNew"></div></div></div>
+      <div class="ts">«Тратится» — без процентов</div>
+    </div>
+    <div class="card" style="gap:12px; padding:16px 18px">
+      <div class="row"><div class="col sp"><div class="lbl">Не потратили</div></div><div class="sm" data-a="left"></div></div>
+      <div class="row"><div class="av s g"><i data-ic="shield" data-s="18" class="mint"></i></div><div class="col sp"><div class="tb">В запас</div><div class="ts" data-a="toBufSub"></div></div><div class="tog" data-a="toBuf"></div></div>
+      <div class="row" data-a="vacRow"><div class="av s b"><i data-ic="plane" data-s="18" style="color:var(--blue)"></i></div><div class="col sp"><div class="tb">В «Отпуск»</div><div class="ts" data-a="toVacSub"></div></div><div class="tog" data-a="toVac"></div></div>
+    </div>
+    <div class="card" style="gap:10px; padding:16px 18px">
+      <div class="row"><div class="col sp"><div class="tb" data-a="moveTitle">15&nbsp;333&nbsp;₽ переходят на&nbsp;новую ставку</div><div class="ts" data-a="moveSub">1/12 прежних денег за&nbsp;месяц без снятия</div></div></div>
+      <div class="bar thick"><i data-a="moveBar" style="width:8.3%"></i></div>
+    </div>
+    <div class="card" style="gap:10px; padding:16px 18px">
+      <div class="row"><div class="col sp"><div class="tb" data-a="tenTitle">Стаж: 1 из 3 месяцев</div><div class="ts" data-a="tenSub">ещё два месяца без снятия — и ставка +1</div></div><div class="sm mint" data-a="tenRate" style="white-space:nowrap"></div></div>
+      <div class="bar thick"><i data-a="tenBar" style="width:33%"></i></div>
+    </div>
+  </div>
+  <div class="foot"><div class="cta">Готово</div></div>
+</div>
+</template>
+
+<template data-id="u-mile" data-cap="Веха">
+<div class="view">
+  <div class="glow" style="left:-60px; top:60px; opacity:.9"></div>
+  <div class="body" style="padding-top:92px; gap:16px; align-items:center; text-align:center">
+    <div class="lbl" data-a="date"></div>
+    <div class="ring" data-size="208" data-ring="0,0,0" data-rate="9,5%" data-label="на новые"></div>
+    <div class="h1" data-a="title" style="margin-top:4px; font-size:30px"></div>
+    <div class="t" data-a="text" style="padding:0 10px"></div>
+    <div class="card" data-a="facts" style="align-self:stretch; text-align:left; gap:12px; padding:16px 18px"></div>
+  </div>
+  <div class="foot"><div class="cta" data-a="cta">Дальше</div></div>
+</div>
+</template>
+
+<template data-id="u-insights" data-cap="Аналитика">
+<div class="view">
+  <div class="glow" style="opacity:.45"></div>
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Аналитика</div><div class="pill n" data-a="period">декабрь</div></div>
+  <div class="body scroll" style="gap:16px">
+    <div class="card hi rv" style="padding:20px; gap:13px">
+      <div class="hero"><div class="big" data-a="life">0,0</div><div class="u">месяца жизни</div></div>
+      <div class="ts" data-a="lifeSub"></div>
+      <div class="tanks" data-a="tanks"></div>
+      <div class="row"><i data-ic="spark" data-s="18" class="mint"></i><div class="ts ink sp" data-a="lifeTip"></div></div>
+      <div class="sep" style="background:var(--hi-line); opacity:.5"></div>
+      <div class="row"><div class="col sp"><div class="tb" style="font-size:16px">Следующая ступень — 6&nbsp;месяцев</div><div class="ts">сетка до 12,5% действует на&nbsp;подушку до&nbsp;504&nbsp;000&nbsp;₽</div></div></div>
+      <div class="bar"><i data-a="six" style="width:0%"></i></div>
+    </div>
+
+    <div class="card rv" style="gap:12px">
+      <div class="row"><div class="col sp"><div class="lbl">Ставка на новые деньги</div><div class="mid" data-a="rate">9,5%</div></div><div class="pill" data-a="rateNext"></div></div>
+      <svg data-a="steps" width="360" height="120" viewBox="0 0 360 120" style="display:block"></svg>
+      <div class="row" style="justify-content:space-between"><div class="lbl">дек</div><div class="lbl">мар</div><div class="lbl">июн</div><div class="lbl">сен</div></div>
+      <div class="sep"></div>
+      <div class="ts" data-a="avgLine"></div>
+    </div>
+
+    <div class="card rv" style="gap:14px">
+      <div class="row"><div class="lbl sp">Куда распределены деньги</div><div class="lbl ink" data-a="donutSum" style="font-weight:600"></div></div>
+      <div class="row" style="gap:18px">
+        <div style="position:relative; width:150px; height:150px; flex:none"><svg data-a="donut" width="150" height="150" viewBox="0 0 150 150" style="transform:rotate(-90deg); display:block"></svg><div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center"><div class="sm mint" data-a="donutPct" style="font-size:26px">0%</div><div class="lbl">копится</div></div></div>
+        <div class="col sp" style="gap:10px" data-a="legend"></div>
+      </div>
+    </div>
+
+    <div class="card rv" data-a="goalCard" style="gap:14px">
+      <div class="row"><div class="lbl sp">Цель «Отпуск»</div><div class="pill n" data-a="goalEta"></div></div>
+      <div class="row" style="align-items:baseline; gap:8px"><div class="mid" data-a="goalSum"></div><div class="ts">из 120&nbsp;000&nbsp;₽</div></div>
+      <div class="bar thick"><i data-a="goalBar" style="width:0%; background:linear-gradient(90deg,#4C9BE8,#6FB7FF)"></i></div>
+      <div class="row" data-a="toTerm"><i data-ic="lock" data-s="18" style="color:var(--blue)"></i><div class="ts ink sp">Срочный конверт: не&nbsp;трогать до&nbsp;даты — ставка выше на&nbsp;1&nbsp;п.п.</div><i data-ic="chev" data-s="16" class="soft"></i></div>
+    </div>
+
+    <div class="card rv" style="gap:12px">
+      <div class="row"><div class="col sp"><div class="lbl">Счёт зарабатывает в месяц</div><div class="mid mint" data-a="mEarn">+0&nbsp;₽</div></div></div>
+      <div class="segs" data-a="earnBar" style="height:16px"></div>
+      <div class="col gap6" data-a="earnLegend"></div>
+    </div>
+
+    <div class="card flat rv" style="padding:16px"><div class="row"><i data-ic="bolt" data-s="20" class="mint"></i><div class="ts ink sp" data-a="tip"></div></div></div>
+    <div class="card rv rows" data-a="more">
+      <div class="row er" data-a="toRaise"><div class="av s g"><i data-ic="trend" data-s="18" class="mint"></i></div><div class="col sp"><div class="tb" style="font-size:16px">Откладывать с&nbsp;прибавки</div><div class="ts">половина будущего роста зарплаты — в&nbsp;запас</div></div><i data-ic="chev" data-s="16" class="soft"></i></div>
+      <div class="row er" data-a="toOver"><div class="av s n"><i data-ic="bank" data-s="18" class="soft"></i></div><div class="col sp"><div class="tb" style="font-size:16px">Сверх подушки — вклад или фонд</div><div class="ts">после шести месяцев расходов на&nbsp;счёте 7,5%</div></div><i data-ic="chev" data-s="16" class="soft"></i></div>
+    </div>
+    <div style="height:8px; flex:none"></div>
+  </div>
+</div>
+</template>
+
+<!-- ═════════════ новые экраны версии 2 ═════════════ -->
+
+<template data-id="u-lost" data-cap="Стаж: минус ступень">
+<div class="view">
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Стаж</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:14px">
+    <div class="card" style="padding:18px; box-shadow:inset 0 0 0 1.5px rgba(240,179,65,.45)">
+      <div class="row" style="gap:16px">
+        <div class="ring" data-size="124" data-ring="1,0.66,0" data-rate="10,5%" data-label="на новые"></div>
+        <div class="col sp" style="gap:6px"><div class="tag a" style="margin:0">минус одна ступень</div><div class="tb" data-a="lostTitle">Стаж: 2 из 3 месяцев</div><div class="ts" data-a="lostSub">надбавка +1&nbsp;п.п. на&nbsp;паузе, остальное на&nbsp;месте</div></div>
+      </div>
+    </div>
+    <div class="h1" style="font-size:28px">Надбавку за&nbsp;стаж можно вернуть</div>
+    <div class="t" data-a="lostText">14 апреля вы взяли из&nbsp;запаса 19&nbsp;570&nbsp;₽. Ставка на&nbsp;новые деньги стала 10,5% вместо 11,5%. Стаж не&nbsp;обнулился — откатился на&nbsp;одну ступень.</div>
+    <div class="card" style="gap:13px">
+      <div class="row top"><div class="av s g"><i data-ic="undo" data-s="18" class="mint"></i></div><div class="col sp"><div class="tb" data-a="lostWay1">Вернуть 19&nbsp;570&nbsp;₽ до 14 мая</div><div class="ts">стаж и&nbsp;ставка 11,5% вернутся в&nbsp;тот же день. Право на&nbsp;ошибку — раз в&nbsp;квартал</div></div></div>
+      <div class="sep"></div>
+      <div class="row top"><div class="av s n"><i data-ic="timer" data-s="18" class="soft"></i></div><div class="col sp"><div class="tb">Или месяц без снятия</div><div class="ts" data-a="lostWay2">ступень вернётся сама 14 мая</div></div></div>
+    </div>
+    <div class="info"><i data-ic="info" data-s="18" class="soft" style="margin-top:1px"></i><div class="ts" data-a="lostCost">Со счёта ничего не&nbsp;списано. Пока надбавки нет, недополучаете около 84&nbsp;₽ процентов в&nbsp;месяц.</div></div>
+  </div>
+  <div class="foot"><div class="cta" data-a="lostCta">Вернуть 19&nbsp;570&nbsp;₽ из свободных</div><div class="cta sec" data-a="lostSkip">Оставить как есть</div></div>
+</div>
+</template>
+
+<template data-id="u-move" data-cap="Переезд нынешнего клиента">
+<div class="view">
+  <div class="glow" style="opacity:.45"></div>
+  <div class="nav"><div class="ic-btn"><i data-ic="close"></i></div><div class="ttl">Перевод счёта</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:14px">
+    <div class="h1" style="font-size:30px; margin-bottom:2px">Что станет с&nbsp;вашим счётом</div>
+    <div class="card" style="gap:13px">
+      <div class="row top"><span class="dot" style="background:var(--off); margin-top:7px"></span><div class="col sp"><div class="tb">Прежние деньги</div><div class="ts">138&nbsp;000&nbsp;₽ на&nbsp;накопительном счёте — ничего не&nbsp;теряете</div></div><div class="sm">7,5%</div></div>
+      <div class="sep"></div>
+      <div class="row top"><span class="dot" style="background:var(--mint); margin-top:7px"></span><div class="col sp"><div class="tb">Новые деньги</div><div class="ts">зарплата, переводы из&nbsp;других банков, остаток месяца</div></div><div class="sm mint" style="white-space:nowrap">9,5–12,5%</div></div>
+    </div>
+    <div class="card hi" style="gap:12px; padding:18px">
+      <div class="col" style="gap:4px"><div class="tb">Каждый месяц без снятия 1/12 прежних денег переходит на&nbsp;новую ставку</div><div class="ts">зарплата приходит на&nbsp;счёт — за&nbsp;год. Без зарплаты — за&nbsp;два</div></div>
+      <div class="cols" data-a="moveCols"><div><i class="n" style="height:0%"></i><i class="o" style="height:100%"></i></div><div><i class="n" style="height:8%"></i><i class="o" style="height:92%"></i></div><div><i class="n" style="height:17%"></i><i class="o" style="height:83%"></i></div><div><i class="n" style="height:25%"></i><i class="o" style="height:75%"></i></div><div><i class="n" style="height:33%"></i><i class="o" style="height:67%"></i></div><div><i class="n" style="height:42%"></i><i class="o" style="height:58%"></i></div><div><i class="n" style="height:50%"></i><i class="o" style="height:50%"></i></div><div><i class="n" style="height:58%"></i><i class="o" style="height:42%"></i></div><div><i class="n" style="height:67%"></i><i class="o" style="height:33%"></i></div><div><i class="n" style="height:75%"></i><i class="o" style="height:25%"></i></div><div><i class="n" style="height:83%"></i><i class="o" style="height:17%"></i></div><div><i class="n" style="height:92%"></i><i class="o" style="height:8%"></i></div><div><i class="n" style="height:100%"></i><i class="o" style="height:0%"></i></div></div>
+      <div class="row" style="justify-content:space-between"><div class="lbl">дек</div><div class="lbl">мар</div><div class="lbl">июн</div><div class="lbl">сен</div><div class="lbl ink" style="font-weight:600">дек</div></div>
+      <div class="legend"><span><i style="background:var(--off)"></i>прежние · 7,5%</span><span><i style="background:var(--mint)"></i>на новой ставке · до 12,5%</span></div>
+    </div>
+    <div class="card flat" style="padding:14px 16px"><div class="row"><i data-ic="doc" data-s="20" class="mint"></i><div class="ts soft sp">Номер счёта и&nbsp;реквизиты не&nbsp;меняются. Вернуться на&nbsp;прежние условия можно в&nbsp;любой момент.</div></div></div>
+  </div>
+  <div class="foot"><div class="cta">Перевести счёт</div><div class="cta sec" data-a="stay">Оставить как есть</div></div>
+</div>
+</template>
+
+<template data-id="u-out" data-cap="Вывод в другой банк">
+<div class="view">
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Перевод в&nbsp;другой банк</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:14px">
+    <div class="col gap6" style="padding:2px 4px 0">
+      <div class="lbl">Себе, по&nbsp;номеру телефона · СБП</div>
+      <div class="amount"><div class="big" data-a="outSum">100&nbsp;000&nbsp;₽</div><i data-ic="edit" data-s="20" class="soft"></i></div>
+    </div>
+    <div class="card" style="gap:13px">
+      <div class="row"><div class="t sp">Из свободных</div><div class="sm" data-a="outFree">43&nbsp;360&nbsp;₽</div></div>
+      <div class="sep"></div>
+      <div class="row"><div class="t sp">Из запаса</div><div class="sm" data-a="outBuf">56&nbsp;640&nbsp;₽</div></div>
+      <div class="sep"></div>
+      <div class="row"><div class="t sp">Комиссия</div><div class="sm mint">0&nbsp;₽</div></div>
+    </div>
+    <div class="card" style="gap:12px; box-shadow:inset 0 0 0 1.5px rgba(240,179,65,.4)">
+      <div class="lbl" style="color:var(--amber-ink)">Чем это обернётся</div>
+      <div class="row top"><i data-ic="shield" data-s="20" class="amb"></i><div class="ts ink sp" data-a="outLife">Запас: 1,8 → 1,1 месяца жизни</div></div>
+      <div class="row top"><i data-ic="bolt" data-s="20" class="amb"></i><div class="ts ink sp" data-a="outCost">Недополучите около 354&nbsp;₽ процентов в&nbsp;месяц. Со&nbsp;счёта ничего не&nbsp;спишем</div></div>
+      <div class="row top"><i data-ic="undo" data-s="20" class="amb"></i><div class="ts ink sp">Стаж — минус одна ступень. Вернёте за&nbsp;30&nbsp;дней — сохранится</div></div>
+    </div>
+    <div class="card" style="padding:16px 18px"><div class="row"><div class="col sp"><div class="tb">Пауза перед крупным переводом</div><div class="ts">другому человеку из&nbsp;запаса от&nbsp;50&nbsp;000&nbsp;₽ — через сутки. Себе и&nbsp;покупки — сразу</div></div><div class="tog" data-a="pause"></div></div></div>
+  </div>
+  <div class="foot"><div class="cta" data-a="outCta">Перевести 100&nbsp;000&nbsp;₽</div><div class="ts" style="text-align:center">Деньги придут сразу. Закрыть счёт тоже можно в&nbsp;любой день.</div></div>
+</div>
+</template>
+
+<template data-id="u-term" data-cap="Срочный конверт">
+<div class="view">
+  <div class="glow" style="opacity:.45; background:radial-gradient(closest-side, rgba(111,183,255,.3), rgba(111,183,255,0))"></div>
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">Срочный конверт</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:14px">
+    <div class="col gap6" style="padding:2px 4px 0">
+      <div class="lbl">Отпуск · цель к 1 июня</div>
+      <div class="row" style="align-items:baseline; gap:10px"><div class="big" data-a="termSum">58&nbsp;400&nbsp;₽</div><div class="t">из 120&nbsp;000&nbsp;₽</div></div>
+    </div>
+    <div class="row gap10">
+      <div class="card sp" style="padding:16px; gap:6px"><div class="lbl">Обычный конверт</div><div class="mid">как сейчас</div><div class="ts">ставка «копится», меняется с&nbsp;привычками</div></div>
+      <div class="card hi sp" style="padding:16px; gap:6px"><div class="lbl hl">Срочный до 1 июня</div><div class="mid mint">+1&nbsp;п.п.</div><div class="ts">и&nbsp;не&nbsp;снизится до&nbsp;даты</div></div>
+    </div>
+    <div class="card" style="gap:13px">
+      <div class="row top"><div class="av s g"><i data-ic="down" data-s="18" class="mint"></i></div><div class="col sp"><div class="tb">Пополнять можно</div><div class="ts">раскладка продолжит вносить по&nbsp;12&nbsp;400&nbsp;₽</div></div></div>
+      <div class="sep"></div>
+      <div class="row top"><div class="av s n"><i data-ic="undo" data-s="18" class="soft"></i></div><div class="col sp"><div class="tb">Забрать раньше — тоже</div><div class="ts">тогда проценты пересчитаем по&nbsp;ставке «копится», как в&nbsp;обычном конверте</div></div></div>
+      <div class="sep"></div>
+      <div class="row"><div class="t sp">Добавит к&nbsp;1&nbsp;июня</div><div class="sm mint">около 370&nbsp;₽</div></div>
+    </div>
+    <div class="info"><i data-ic="info" data-s="18" class="soft" style="margin-top:1px"></i><div class="ts">По сути это вклад внутри счёта: деньги застрахованы, конверт остаётся на&nbsp;том же экране.</div></div>
+  </div>
+  <div class="foot"><div class="cta">Сделать срочным до&nbsp;1&nbsp;июня</div></div>
+</div>
+</template>
+
+<template data-id="u-raise" data-cap="Откладывать с прибавки">
+<div class="view">
+  <div class="glow" style="opacity:.45"></div>
+  <div class="nav"><div class="ic-btn"><i data-ic="back"></i></div><div class="ttl">С&nbsp;прибавки — в&nbsp;запас</div><div style="width:40px"></div></div>
+  <div class="body" style="gap:14px">
+    <div class="h1" style="font-size:28px; margin-bottom:2px">Запас растёт, а&nbsp;сегодняшние траты — нет</div>
+    <div class="card" style="gap:13px">
+      <div class="row top"><div class="av s g"><i data-ic="trend" data-s="18" class="mint"></i></div><div class="col sp"><div class="tb">Половину прибавки — в&nbsp;запас</div><div class="ts">зарплата вырастет — раскладка сама добавит половину роста</div></div><div class="tog"></div></div>
+      <div class="sep"></div>
+      <div class="row top"><div class="av s c"><i data-ic="percent" data-s="18" class="coral"></i></div><div class="col sp"><div class="tb">Закрытый кредит — в&nbsp;запас</div><div class="ts">кредит закроется в&nbsp;марте 2028 — его платёж 23&nbsp;400&nbsp;₽ пойдёт в&nbsp;запас</div></div><div class="tog"></div></div>
+    </div>
+    <div class="card hi" style="gap:12px; padding:18px">
+      <div class="lbl hl">Пример: зарплата выросла на&nbsp;10&nbsp;000&nbsp;₽</div>
+      <div class="row" style="align-items:baseline; gap:8px"><div class="big mint" style="font-size:40px">+5&nbsp;000&nbsp;₽</div><div class="t">в запас каждый месяц</div></div>
+      <div class="cols" style="height:64px"><div><i class="n" style="height:0%; opacity:.9"></i><i class="o" style="height:40%; background:#2F6B45"></i></div><div><i class="n" style="height:0%; opacity:.9"></i><i class="o" style="height:44%; background:#2F6B45"></i></div><div><i class="n" style="height:0%; opacity:.9"></i><i class="o" style="height:48%; background:#2F6B45"></i></div><div><i class="n" style="height:0%; opacity:.9"></i><i class="o" style="height:52%; background:#2F6B45"></i></div><div><i class="n" style="height:10%; opacity:.9"></i><i class="o" style="height:52%; background:#2F6B45"></i></div><div><i class="n" style="height:20%; opacity:.9"></i><i class="o" style="height:52%; background:#2F6B45"></i></div><div><i class="n" style="height:30%; opacity:.9"></i><i class="o" style="height:52%; background:#2F6B45"></i></div><div><i class="n" style="height:40%; opacity:.9"></i><i class="o" style="height:52%; background:#2F6B45"></i></div></div>
+      <div class="legend"><span><i style="background:#2F6B45"></i>запас по&nbsp;раскладке</span><span><i style="background:var(--mint)"></i>с прибавки</span></div>
+      <div class="ts">Три месяца жизни — примерно на&nbsp;месяц раньше. Свободных тоже станет больше: на&nbsp;5&nbsp;000&nbsp;₽</div>
+    </div>
+    <div class="info"><i data-ic="info" data-s="18" class="soft" style="margin-top:1px"></i><div class="ts">Сегодня ничего не&nbsp;меняется. Оба правила можно выключить в&nbsp;любой момент.</div></div>
+  </div>
+  <div class="foot"><div class="cta">Включить</div></div>
+</div>
+</template>

@@ -1,0 +1,113 @@
+{
+  "v": 5,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-22T17:02:22Z"
+  },
+  "lists": "css",
+  "format": {
+    "v": 1,
+    "shared": [
+      "project/deck.css"
+    ]
+  },
+  "title": "Накопительный счёт первого выбора — версия 2",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "summary",
+    "toc",
+    "market",
+    "auction",
+    "landscape",
+    "edge",
+    "today",
+    "idea",
+    "segments",
+    "two",
+    "beh-rate",
+    "beh-rules",
+    "anchor",
+    "goals",
+    "c1-idea",
+    "c1-rules",
+    "c1-video",
+    "c1-j1",
+    "c1-j2",
+    "c1-j3",
+    "c1-client",
+    "c1-unit",
+    "c1-risks",
+    "c2-idea",
+    "c2-rules",
+    "c2-split",
+    "c2-video",
+    "c2-j1",
+    "c2-j2",
+    "c2-j3",
+    "c2-client",
+    "c2-unit",
+    "c2-risks",
+    "u-idea",
+    "u-map",
+    "compare",
+    "union",
+    "beh-unit",
+    "pie",
+    "sens",
+    "u-video",
+    "u-j1",
+    "u-j3",
+    "u-move",
+    "u-j2",
+    "u-ins",
+    "u-new",
+    "u-read",
+    "inflow",
+    "more",
+    "pilot",
+    "u-risks",
+    "next"
+  ],
+  "sections": {
+    "s0": {
+      "description": "Обложка, резюме с рекомендацией и содержание.",
+      "start": "cover"
+    },
+    "s1": {
+      "description": "Рынок: рост накопительных счетов, приветственная ставка в пересчёте на год, конкуренты и преимущества Сбера.",
+      "start": "market"
+    },
+    "s2": {
+      "description": "Идея и правила ставки: сегменты, два этапа продукта, ставка из трёх привычек на новые деньги, якорь и метрики трайба.",
+      "start": "idea"
+    },
+    "s3": {
+      "description": "Этап 1, счёт, которым платят: адресное предложение для новых денег, путь клиента, экономика и риски.",
+      "start": "c1-idea"
+    },
+    "s4": {
+      "description": "Этап 2, один счёт на все цели: конверты, раскладка поступлений, семья, цена процентов на «тратится» и риски.",
+      "start": "c2-idea"
+    },
+    "s5": {
+      "description": "Рекомендация: объединённый продукт, порог новых денег, чувствительность к ключевой, месяц клиента и аналитика.",
+      "start": "u-idea"
+    },
+    "s6": {
+      "description": "Запуск: механики новых денег и роста подушки, пилот, риски и решения.",
+      "start": "inflow"
+    }
+  },
+  "faces": {
+    "geologica": {
+      "family": "Geologica",
+      "href": "https://fonts.googleapis.com/css2?family=Geologica:wght@300..800&family=Golos+Text:wght@400..700&display=swap"
+    },
+    "golos-text": {
+      "family": "Golos Text",
+      "href": "https://fonts.googleapis.com/css2?family=Geologica:wght@300..800&family=Golos+Text:wght@400..700&display=swap"
+    }
+  },
+  "designSystems": []
+}

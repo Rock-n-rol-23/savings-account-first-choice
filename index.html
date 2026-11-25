@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Накопительный счёт первого выбора — версия 2</title>
+<meta name="description" content="Концепция перезапуска накопительного счёта: дека из 54 слайдов и два кликабельных прототипа. Текст слайдов — в deck.md.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..800&family=Golos+Text:wght@400..700&display=swap">
+<style>
+* { margin: 0; box-sizing: border-box }
+body { background: #0D1210; color: #EEF2EC; font: 18px/1.5 'Golos Text', Arial, sans-serif; padding: clamp(32px, 7vw, 96px) clamp(20px, 6vw, 96px) }
+main { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px }
+.eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #57D98A }
+h1 { font: 600 clamp(34px, 6vw, 60px)/1.06 'Geologica', Arial, sans-serif; letter-spacing: -1px; text-wrap: balance }
+.lead { font-size: clamp(18px, 2.4vw, 22px); color: #B4C0B9; max-width: 720px; text-wrap: pretty }
+.cover { width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; border: 1px solid #2C3632; object-fit: cover; display: block }
+.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px }
+.card { display: flex; flex-direction: column; gap: 6px; padding: 22px 24px; background: #18211E; border: 1px solid #2C3632; border-radius: 16px; color: inherit; text-decoration: none; transition: border-color .2s ease-out, transform .2s cubic-bezier(.2,.7,.2,1) }
+.card:hover { border-color: #57D98A; transform: translateY(-2px) }
+.card:active { transform: scale(.98) }
+.card:focus-visible { outline: 2px solid #57D98A; outline-offset: 3px }
+.card b { font: 600 20px/1.25 'Geologica', Arial, sans-serif }
+.card span { font-size: 16px; color: #B4C0B9 }
+.card-hero { border-color: #2F6B45 }
+.note { font-size: 16px; color: #84928B; border-top: 1px solid #2C3632; padding-top: 24px }
+.note a { color: #57D98A }
+@media (prefers-reduced-motion: reduce) { .card { transition: none } .card:hover, .card:active { transform: none } }
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Концепция продукта · версия 2</p>
+<h1>Накопительный счёт первого выбора</h1>
+<p class="lead">Один счёт копит, платит и раскладывает зарплату по конвертам. Ставка за поведение идёт на новые деньги. Здесь — дека из 54 слайдов и два кликабельных прототипа.</p>
+<a href="deck/" aria-label="Открыть деку"><img class="cover" src="slides/02-summary.jpg" alt="Слайд «Резюме»: порог новых денег 0% в первый день, 29–50% после списания якоря, 60 млрд ₽ в год на каждый триллион в «тратится»"></a>
+<div class="links">
+<a class="card card-hero" href="deck/"><b>Дека</b><span>54 слайда одной страницей, записи прототипов играют на слайдах</span></a>
+<a class="card" href="prototype/unified/"><b>Объединённый прототип</b><span>Месяц Анны: от первой цели до июня</span></a>
+<a class="card" href="prototype/stages/"><b>Прототип этапов</b><span>Счёт, которым платят, и счёт на все цели</span></a>
+<a class="card" href="deck.md"><b>Текст слайдов</b><span>Один файл для чтения людьми и языковыми моделями</span></a>
+</div>
+<p class="note">Рабочая версия: экономика посчитана на рыночных допущениях, без данных портфеля. Исходники слайдов и прототипов лежат в <a href="https://github.com/Rock-n-rol-23/savings-account-first-choice">репозитории</a>, правила продукта и ключевые цифры — в его описании.</p>
+</main>
+</body>
+</html>
